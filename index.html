@@ -16,6 +16,7 @@
       if (localStorage.getItem("theme") === "light") d.setAttribute("data-theme", "light");
       animOff = localStorage.getItem("anim") === "off";
     } catch(e){}
+    if (animOff) d.classList.add("still");
     if (!animOff && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
       d.classList.add("anim");
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";
@@ -119,7 +120,7 @@ html[lang="ar"] [data-l="en"], html[lang="en"] [data-l="ar"]{display:none !impor
 :root[data-theme="light"] .ic-moon{display:none}
 
 /* ---------- hero ---------- */
-.hero{padding:clamp(28px, 5vw, 56px) 0 clamp(56px, 8vw, 96px);position:relative}
+.hero{padding:clamp(28px, 5vw, 56px) 0 clamp(56px, 8vw, 96px);position:relative;overflow-x:clip}
 .mega{font-family:var(--f-mega);font-size:14vw;line-height:.86;letter-spacing:.005em;color:var(--red);-webkit-text-stroke:.05em #0A0A0B;paint-order:stroke fill;white-space:nowrap;margin:0;direction:ltr;text-align:center;user-select:none;text-transform:uppercase}
 .mega span{display:inline-block}
 .idrow{position:relative;margin-top:calc(var(--mega, 160px) * -0.30);padding-inline-start:clamp(4px, 2vw, 28px);z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
@@ -144,14 +145,35 @@ html[dir="rtl"] .cta .ar-flip{transform:scaleX(-1)}
 .stat span{font:500 .66rem var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
 html[lang="ar"] .stat span{font-family:var(--f-body);font-size:.82rem;letter-spacing:0;text-transform:none}
 
-.portrait{position:relative;aspect-ratio:4/5;background:var(--red);overflow:hidden;border-radius:4px}
-.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.portrait.has-photo{background:#111}
-.portrait .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mega);font-size:clamp(5rem, 11vw, 9rem);color:transparent;-webkit-text-stroke:2px rgba(0,0,0,.55);letter-spacing:.02em}
-.portrait .ph::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg, rgba(0,0,0,.08) 0 1px, transparent 1px 4px)}
-.portrait .cap{position:absolute;bottom:12px;inset-inline-start:12px;background:#0B0B0C;color:#F1EFEA;font:600 .6rem var(--f-mono);letter-spacing:.08em;padding:5px 9px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;direction:ltr}
-.portrait .cap i{width:6px;height:6px;border-radius:50%;background:var(--red)}
+/* floating circular portrait with orbiting rings and tech badges */
+.portrait{position:relative;width:100%;max-width:400px;aspect-ratio:1;margin:0;margin-inline-start:auto;display:grid;place-items:center}
+.portrait .glow{position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle, color-mix(in srgb, var(--red) 55%, transparent) 0%, transparent 68%);filter:blur(28px);opacity:.55;animation:pulse-glow 6s ease-in-out infinite}
+.portrait .ring{position:absolute;border-radius:50%;pointer-events:none}
+.portrait .r1{inset:5%;border:1.5px dashed color-mix(in srgb, var(--red) 60%, transparent);animation:spin 30s linear infinite}
+.portrait .r2{inset:0;border:1px solid var(--line-2);animation:spin 18s linear infinite reverse}
+.portrait .r2 b{position:absolute;top:-6px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px color-mix(in srgb, var(--red) 25%, transparent), 0 0 18px var(--red)}
+.portrait .disc{position:relative;width:74%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--red);
+  box-shadow:0 0 0 6px var(--bg), 0 0 0 7px color-mix(in srgb, var(--red) 55%, transparent), 0 34px 70px -28px rgba(0,0,0,.75);
+  animation:float 6.5s ease-in-out infinite}
+.portrait .disc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.portrait .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mega);font-size:clamp(4rem, 8vw, 6.5rem);color:#fff}
 .portrait.has-photo .ph{display:none}
+.portrait .orb{position:absolute;inset:0;animation:spin 26s linear infinite;pointer-events:none}
+.portrait .orb span{position:absolute;padding:7px 13px;border-radius:999px;font:600 .72rem var(--f-mono);letter-spacing:.04em;color:var(--ink);white-space:nowrap;direction:ltr;
+  background:color-mix(in srgb, var(--bg-2) 70%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid color-mix(in srgb, var(--ink) 16%, transparent);box-shadow:0 10px 24px -12px rgba(0,0,0,.6);
+  animation:spin 26s linear infinite reverse}
+.portrait .orb span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:7px;vertical-align:1px}
+.portrait .orb .b1{top:5%;left:50%;translate:-50% -50%}
+.portrait .orb .b2{top:80%;left:15%;translate:-50% -50%}
+.portrait .orb .b3{top:80%;left:85%;translate:-50% -50%}
+.portrait .cap{position:absolute;bottom:4%;left:50%;translate:-50% 0;background:#0B0B0C;color:#F1EFEA;font:600 .6rem var(--f-mono);letter-spacing:.08em;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;gap:7px;direction:ltr;z-index:2}
+.portrait .cap i{width:6px;height:6px;border-radius:50%;background:#3DDC84;box-shadow:0 0 8px #3DDC84}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse-glow{0%,100%{opacity:.4;transform:scale(.95)}50%{opacity:.7;transform:scale(1.05)}}
+/* animation switched off (or reduced motion): everything stands still */
+html.still .portrait *, html.still .portrait *::before{animation:none !important}
 
 .focus{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .focus li{padding:14px 0;border-top:1px solid var(--line)}
@@ -347,7 +369,7 @@ html.no-cur #cursors{opacity:0}
 }
 @media (max-width: 600px){
   .hero-grid{grid-template-columns:1fr}
-  .portrait{max-width:300px}
+  .portrait{max-width:min(300px, 100% - 90px);margin-inline:auto}
 
   .steps{grid-template-columns:1fr}
   .certs{grid-template-columns:1fr 1fr;gap:10px}
@@ -423,10 +445,16 @@ html.no-cur #cursors{opacity:0}
         </div>
       </div>
 
-      <figure class="portrait" id="portrait" data-b data-fx="wipe" data-n="img.portrait" data-p="2" style="margin:0">
-        <img src="assets/me.jpg" alt="Mohammed Hamdan" onload="this.parentNode.classList.add('has-photo');document.getElementById('capTxt').textContent='MOHAMMED_HAMDAN.JPG'" onerror="this.remove()">
-        <div class="ph">MH</div>
-        <figcaption class="cap"><i></i><span id="capTxt">PHOTO · COMING SOON</span></figcaption>
+      <figure class="portrait" id="portrait" data-b data-n="img.portrait" data-p="2">
+        <i class="glow"></i>
+        <i class="ring r1"></i>
+        <i class="ring r2"><b></b></i>
+        <div class="disc">
+          <img src="assets/me-square.jpg" alt="Mohammed Hamdan" onload="this.closest('.portrait').classList.add('has-photo')" onerror="this.remove()">
+          <div class="ph">MH</div>
+        </div>
+        <div class="orb" aria-hidden="true"><span class="b1">Java</span><span class="b2">Python</span><span class="b3">Flutter</span></div>
+        <figcaption class="cap"><i></i><span data-l="en">Open to work</span><span data-l="ar">متاح للعمل</span></figcaption>
       </figure>
 
       <ul class="focus">
@@ -959,7 +987,7 @@ html.no-cur #cursors{opacity:0}
   animBtn.setAttribute("aria-checked", store("anim") === "off" ? "false" : "true");
   animBtn.addEventListener("click", function(){
     if (animBtn.getAttribute("aria-checked") === "true"){
-      animBtn.setAttribute("aria-checked", "false"); store("anim", "off");
+      animBtn.setAttribute("aria-checked", "false"); store("anim", "off"); root.classList.add("still");
       root.classList.add("no-cur"); skip();
     } else {
       animBtn.setAttribute("aria-checked", "true"); store("anim", "on");
@@ -983,7 +1011,6 @@ html.no-cur #cursors{opacity:0}
   }
   addEventListener("resize", function(){ fitMega(); relayout(); });
   if ("ResizeObserver" in window) new ResizeObserver(function(){ requestAnimationFrame(relayout); }).observe(document.body);
-  if ($("#portrait img")) $("#portrait img").addEventListener("load", function(){ $("#capTxt").textContent = "MOHAMMED_HAMDAN.JPG"; });
 
   var fontsReady = (document.fonts && document.fonts.ready) ? Promise.race([document.fonts.ready, wait(1500)]) : wait(300);
   fontsReady.then(function(){
