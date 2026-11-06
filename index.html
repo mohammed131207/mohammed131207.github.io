@@ -65,9 +65,23 @@ html[lang="ar"] [data-l="en"], html[lang="en"] [data-l="ar"]{display:none !impor
 
 /* ---------- nav ---------- */
 .nav{position:sticky;top:12px;z-index:40;padding-top:12px;margin-top:-12px;pointer-events:none}
-.nav .wrap{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;padding:0 10px 0 18px;border-radius:18px;
-  background:color-mix(in srgb, var(--bg) 55%, transparent);backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);
-  border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);box-shadow:0 12px 32px -16px rgba(0,0,0,.45)}
+/* frosted glass: see-through but not clear, with a soft sheen on the surface and a lit top edge */
+.nav .wrap{pointer-events:auto;position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;padding:0 10px 0 18px;border-radius:18px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.03) 55%, rgba(255,255,255,.015) 100%),
+    color-mix(in srgb, var(--bg) 42%, transparent);
+  backdrop-filter:blur(22px) saturate(1.8);-webkit-backdrop-filter:blur(22px) saturate(1.8);
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(255,255,255,.04), 0 18px 44px -20px rgba(0,0,0,.6)}
+.nav .wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:linear-gradient(115deg, transparent 18%, rgba(255,255,255,.09) 32%, rgba(255,255,255,.02) 42%, transparent 52%);
+  background-size:220% 100%;background-position:100% 0;transition:background-position 1.2s cubic-bezier(.2,.7,.2,1)}
+.nav .wrap:hover::before{background-position:0 0}
+:root[data-theme="light"] .nav .wrap{
+  background:linear-gradient(180deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,.45) 100%), color-mix(in srgb, var(--bg) 30%, transparent);
+  border-color:rgba(255,255,255,.85);
+  box-shadow:inset 0 1px 0 #fff, 0 18px 44px -22px rgba(40,30,20,.35), 0 0 0 1px rgba(20,20,22,.05)}
+:root[data-theme="light"] .nav .wrap::before{background-image:linear-gradient(115deg, transparent 18%, rgba(255,255,255,.9) 32%, rgba(255,255,255,.2) 42%, transparent 52%)}
 html[dir="rtl"] .nav .wrap{padding:0 18px 0 10px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .brand .sq{width:26px;height:26px;background:var(--red);border-radius:5px;display:grid;place-items:center;font:700 .62rem var(--f-mono);color:#fff}
@@ -79,6 +93,7 @@ html[dir="rtl"] .nav .wrap{padding:0 18px 0 10px}
 .ctl{height:38px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);
   background:color-mix(in srgb, var(--bg-2) 60%, transparent);color:var(--ink);cursor:pointer;transition:border-color .2s, background .2s, transform .15s}
 .ctl:hover{border-color:color-mix(in srgb, var(--ink) 35%, transparent)}
+:root[data-theme="light"] .ctl{background:rgba(255,255,255,.88);border-color:rgba(20,20,22,.12)}
 .ctl:active{transform:scale(.96)}
 .ctl.round{width:38px;border-radius:50%}
 .ctl.round svg{width:17px;height:17px}
