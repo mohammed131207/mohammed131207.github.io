@@ -120,14 +120,15 @@ html[lang="ar"] [data-l="en"], html[lang="en"] [data-l="ar"]{display:none !impor
 
 /* ---------- hero ---------- */
 .hero{padding:clamp(28px, 5vw, 56px) 0 clamp(56px, 8vw, 96px);position:relative}
-.mega{font-family:var(--f-mega);font-size:14vw;line-height:.86;letter-spacing:.005em;color:var(--red);-webkit-text-stroke:0;white-space:nowrap;margin:0;direction:ltr;text-align:center;user-select:none;text-transform:uppercase}
+.mega{font-family:var(--f-mega);font-size:14vw;line-height:.86;letter-spacing:.005em;color:var(--red);-webkit-text-stroke:.05em #0A0A0B;paint-order:stroke fill;white-space:nowrap;margin:0;direction:ltr;text-align:center;user-select:none;text-transform:uppercase}
 .mega span{display:inline-block}
 .idrow{position:relative;margin-top:calc(var(--mega, 160px) * -0.30);padding-inline-start:clamp(4px, 2vw, 28px);z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
 .hello{font-family:var(--f-script);font-weight:400;font-style:italic;font-size:clamp(1.6rem, 3.4vw, 2.6rem);line-height:1;color:var(--ink);transform:rotate(-4deg);margin-inline-start:6px}
 html[lang="ar"] .hello{transform:none;font-style:normal;font-weight:700;font-size:clamp(1.7rem, 3.4vw, 2.6rem)}
 .nameblock{display:inline-block;background:var(--red);color:#fff;padding:.02em .22em .06em;font-family:var(--f-mega);font-size:clamp(2.6rem, 6.6vw, 5.4rem);line-height:1.02;letter-spacing:.01em;text-transform:uppercase}
 html[lang="ar"] .nameblock{font-family:"Readex Pro", sans-serif;font-weight:700;font-size:clamp(2.1rem, 5.2vw, 4.3rem);padding:.06em .3em .14em;line-height:1.15}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr .9fr;gap:clamp(24px, 3.4vw, 48px);margin-top:28px;align-items:start}
+.hero-grid > .portrait{order:3} /* the photo sits at the edge, text and list read first */
+.hero-grid{display:grid;grid-template-columns:1.15fr .9fr .85fr;gap:clamp(24px, 3.4vw, 48px);margin-top:28px;align-items:start}
 .role{display:inline-flex;align-items:center;gap:8px;font:500 .72rem var(--f-mono);letter-spacing:.08em;color:var(--ink-2);text-transform:uppercase;margin-bottom:18px}
 .role::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(239,59,45,.18)}
 .intro{font-size:clamp(1rem, 1.3vw, 1.12rem);color:var(--ink-2);margin:0 0 26px;max-width:46ch}
