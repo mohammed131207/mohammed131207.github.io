@@ -254,6 +254,8 @@ html[dir="rtl"] .team a, html[dir="rtl"] .team span.m{padding:5px 6px 5px 10px}
 html[lang="ar"] .links a{letter-spacing:0;font-size:.84rem;text-transform:none}
 .links a:hover{background:#fff;color:#000;border-color:#fff}
 .w-hint{position:absolute;bottom:24px;inset-inline-start:clamp(20px, 4vw, 56px);z-index:2;display:flex;align-items:center;gap:10px}
+.w-hint{transition:opacity .5s ease}
+.w-hint.gone{opacity:0;pointer-events:none}
 .w-hint i{width:1px;height:28px;background:linear-gradient(var(--ink-3), transparent);animation:hint 1.6s ease-in-out infinite}
 @keyframes hint{50%{transform:translateY(6px);opacity:.4}}
 
@@ -705,7 +707,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   }
 
   /* ---------- the outline wheel ---------- */
-  var workSec = $("#work"), arcPath = $("#arcPath"), pCount = $("#pCount");
+  var workSec = $("#work"), arcPath = $("#arcPath"), pCount = $("#pCount"), hint = $(".w-hint");
   var desk = matchMedia("(min-width: 1001px), (orientation: landscape) and (min-width: 640px)");
   var N = P.length, cur = -1, geo = {};
   function sizeWork(){
@@ -749,6 +751,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     var top = workSec.offsetTop, span = workSec.offsetHeight - innerHeight;
     var p = Math.min(1, Math.max(0, (scrollY - top) / span));
     target = p * (N - 1);
+    if (p > 0.03) hint.classList.add("gone");
     if (!raf) raf = requestAnimationFrame(tick);
   }
   function tick(){
