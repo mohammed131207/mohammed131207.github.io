@@ -140,6 +140,22 @@ html.motion[dir="rtl"] .hero.pre .hero-copy > *{transform:translateX(-40px)}
 #intro .lg{position:absolute;left:50%;top:50%;width:13vmin;height:13vmin;margin:-6.5vmin 0 0 -6.5vmin;opacity:0;transition:opacity .8s ease}
 #intro.s1 .lg{opacity:1}
 #intro.s3 .lg{opacity:0}
+#rotate{position:fixed;inset:0;z-index:70;background:radial-gradient(600px 500px at 50% 40%, #222225, #0E0E0F 70%);display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 28px;gap:14px}
+#rotate.show{display:flex}
+#rotate .stage{position:relative;width:170px;height:170px;display:grid;place-items:center;margin-bottom:18px}
+#rotate .stage::before{content:"";position:absolute;inset:22px;border:1px solid var(--line-2);transform:rotate(45deg)}
+#rotate .stage::after{content:"";position:absolute;inset:0;border:1px solid var(--line);transform:rotate(45deg) scale(.707)}
+#rotate .ph{position:relative;z-index:1;width:56px;height:96px;border:2px solid #fff;border-radius:12px;background:#0E0E0F;animation:turn 2.6s cubic-bezier(.7,0,.2,1) infinite}
+#rotate .ph::before{content:"";position:absolute;top:6px;left:50%;width:16px;height:3px;margin-left:-8px;border-radius:2px;background:rgba(255,255,255,.5)}
+#rotate .ph svg{position:absolute;inset:30% 22%;width:56%;height:40%;color:#fff}
+@keyframes turn{0%,18%{transform:rotate(0)}48%,78%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
+#rotate h2{font:500 1.7rem/1.2 "Outfit", sans-serif;margin:0;letter-spacing:-.01em}
+#rotate h2.ar{font-family:"Readex Pro", sans-serif;font-weight:500;font-size:1.5rem;direction:rtl}
+#rotate p{color:var(--ink-2);max-width:30ch;margin:0;font-size:.92rem;line-height:1.55}
+#rotate p.ar{font-family:"Readex Pro", sans-serif;direction:rtl}
+#rotate .sep{width:24px;height:1px;background:var(--line-2);margin:6px 0}
+#rotate .go{margin-top:16px;background:none;border:1px solid var(--line-2);color:var(--ink-2);height:42px;padding:0 20px;border-radius:999px;font:500 .78rem "Outfit", sans-serif;letter-spacing:.06em;cursor:pointer}
+#rotate .go:hover{color:#fff;border-color:#fff}
 #skip{position:fixed;bottom:20px;inset-inline-end:20px;z-index:61;display:none;height:34px;padding:0 16px;border-radius:999px;border:1px solid rgba(0,0,0,.2);background:rgba(255,255,255,.6);color:#111;font:500 .7rem var(--f-disp);letter-spacing:.16em;cursor:pointer}
 .motion #skip{display:block}
 #skip.dark{background:rgba(20,20,22,.7);color:var(--ink);border-color:var(--line-2)}
@@ -284,7 +300,7 @@ footer{padding:26px 0 70px;border-top:1px solid var(--line);color:var(--ink-3);f
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 /* ---------- responsive ---------- */
-@media (max-width: 1000px){
+@media (max-width: 1000px) and (orientation: portrait), (max-width: 639px){
   .top nav{display:none}
   .hero-grid,.about-grid{grid-template-columns:1fr}
   .logo-dia{width:min(58vw, 300px)}
@@ -322,6 +338,49 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .s-corner.tr{display:none}
   .counter{display:none}
 }
+@media (orientation: landscape) and (max-height: 560px) and (min-width: 640px){
+  .top{height:50px}
+  .top nav{gap:18px}
+  .top nav a{font-size:.74rem}
+  .slide{padding:66px 0 34px}
+  .counter,.s-corner,.w-hint{display:none}
+  .hero{padding-top:56px}
+  .logo-dia{width:min(30vw, 56vh)}
+  .hero h1{font-size:clamp(2rem, 6.4vw, 3.4rem)}
+  .hero .by{margin-bottom:6px;font-size:.72rem}
+  .hero .sub{margin-top:8px;font-size:.8rem}
+  .hero .lead{margin:10px 0 14px;font-size:.84rem;line-height:1.5}
+  .btn{height:40px;min-width:0;font-size:.7rem}
+  .hstats{display:none}
+  .hero .lead{-webkit-line-clamp:3;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+  h2{font-size:clamp(1.8rem, 5vw, 2.8rem)}
+  .about-grid{gap:28px}
+  .photo{width:min(100%, 44vh)}
+  .skills{grid-template-columns:repeat(3, 1fr)}
+  .certs{grid-template-columns:repeat(3, 1fr)}
+  .steps{margin-top:30px}
+  .wheel .w-head{top:62px}
+  .w-item{font-size:clamp(1rem, 2.6vw, 1.4rem)}
+  .panel{padding-top:58px}
+  .panel .p-head{margin-bottom:6px}
+  .panel .p-head h2{font-size:1.7rem}
+  .pp{inset:104px 20px 14px 12px}
+  .pp-grid{grid-template-columns:1.15fr .85fr;gap:16px}
+  .pp h3{font-size:1.35rem;margin-bottom:6px}
+  .pp .tag{margin-bottom:4px}
+  .pp .desc{font-size:.8rem;line-height:1.5;margin-bottom:10px}
+  .metrics{margin-bottom:10px}
+  .metrics div{padding:6px 0}
+  .metrics b{font-size:1.05rem}
+  .metrics span{font-size:.64rem}
+  .role{font-size:.74rem;padding:6px 8px;margin-bottom:8px}
+  .feats,.team,.stack{display:none}
+  .pp .shot{aspect-ratio:4/3;padding:8px;margin-bottom:10px !important}
+  .links a{height:32px;padding:0 10px;font-size:.62rem}
+  .contact .logo-dia{width:120px;margin-bottom:14px}
+  .contact p{margin:10px auto 18px}
+  .handles a{height:40px}
+}
 @media (prefers-reduced-motion: reduce){ *{transition:none !important;animation:none !important} html{scroll-behavior:auto} }
 </style>
 </head>
@@ -349,6 +408,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <i class="d" style="--x0:90vmin;--y0:90vmin;--x1:25.5vmin;--y1:25.5vmin"></i>
   <i class="c"></i>
   <svg class="lg" style="color:#fff"><use href="#mono"/></svg>
+</div>
+<div id="rotate" role="dialog" aria-modal="true" aria-label="Rotate your phone">
+  <div class="stage"><div class="ph"><svg><use href="#mono"/></svg></div></div>
+  <h2>Rotate your phone</h2>
+  <p>This portfolio is built like a presentation — it looks best in landscape.</p>
+  <i class="sep"></i>
+  <h2 class="ar">لف جوالك بالعرض</h2>
+  <p class="ar">البورتفوليو معمول متل عرض تقديمي، وبيطلع بأحلى شكل لما يكون الجوال بالعرض.</p>
+  <button class="go" id="rotGo" type="button">Continue in portrait · كمّل بالطول</button>
 </div>
 <button id="skip" type="button">SKIP</button>
 <dialog id="lb"><img alt=""><button type="button" aria-label="Close">×</button></dialog>
@@ -638,7 +706,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   /* ---------- the outline wheel ---------- */
   var workSec = $("#work"), arcPath = $("#arcPath"), pCount = $("#pCount");
-  var desk = matchMedia("(min-width: 1001px)");
+  var desk = matchMedia("(min-width: 1001px), (orientation: landscape) and (min-width: 640px)");
   var N = P.length, cur = -1, geo = {};
   function sizeWork(){
     if (!desk.matches){ workSec.style.height = ""; return; }
@@ -646,7 +714,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     var W = wheel.clientWidth, H = wheel.clientHeight;
     var R = H * 1.05, cx = W * 0.86 - R, cy = H / 2;
     geo = { W: W, H: H, R: R, cx: cx, cy: cy, r: R - W * 0.42 };
-    geo.step = 74 / geo.r;  // radians between items (~74px apart)
+    geo.step = (H < 560 ? 50 : 74) / geo.r;  // radians between items (~74px apart)
     // the arc: a big circle whose right edge passes through x = W*0.86
     var a0 = Math.asin(Math.min(1, (H * 0.62) / R));
     var x1 = cx + R * Math.cos(-a0), y1 = cy + R * Math.sin(-a0), x2 = cx + R * Math.cos(a0), y2 = cy + R * Math.sin(a0);
@@ -765,12 +833,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   skipBtn.addEventListener("click", finish);
 
   var ready = (document.fonts && document.fonts.ready) ? Promise.race([document.fonts.ready, new Promise(function(r){ setTimeout(r, 1200); })]) : Promise.resolve();
+  // Phones held upright see a "rotate your phone" screen first; the intro waits until they turn it or choose to continue.
+  var portraitQ = matchMedia("(orientation: portrait) and (max-width: 760px)"), rot = $("#rotate");
+  function gate(cb){
+    var ok = false; try { ok = sessionStorage.getItem("rot-ok") === "1"; } catch(e){}
+    if (!portraitQ.matches || ok) return cb();
+    rot.classList.add("show");
+    var done = false;
+    function go(){
+      if (done) return; done = true;
+      rot.classList.remove("show");
+      if (portraitQ.removeEventListener) portraitQ.removeEventListener("change", onTurn);
+      setTimeout(function(){ sizeWork(); onWorkScroll(); chrome(); cb(); }, 400);
+    }
+    function onTurn(){ if (!portraitQ.matches) go(); }
+    if (portraitQ.addEventListener) portraitQ.addEventListener("change", onTurn);
+    addEventListener("orientationchange", function(){ setTimeout(onTurn, 250); });
+    $("#rotGo").addEventListener("click", function(){ try { sessionStorage.setItem("rot-ok", "1"); } catch(e){} go(); });
+  }
+
   ready.then(function(){
     window.__v3 = true;
     sizeWork(); onWorkScroll(); chrome();
-    if (!root.classList.contains("motion")){ hero.classList.remove("pre"); heroArt.classList.add("on"); return; }
+    if (!root.classList.contains("motion")){ hero.classList.remove("pre"); heroArt.classList.add("on"); gate(function(){}); return; }
     scrollTo(0, 0);
-    play();
+    gate(play);
   });
 })();
 </script>
