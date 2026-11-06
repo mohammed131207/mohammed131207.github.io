@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohammed Hamdan · Software Engineer</title>
+<meta name="description" content="محمد خيري أحمد حمدان — مهندس برمجيات. تطبيقات Flutter ومنصات ويب منشورة، مبنية بأسلوب Vibe Coding.">
+<meta name="theme-color" content="#09090A">
+<script>
+  // Turn on the live-build animation only when motion is welcome. If the main script never starts, show everything.
+  (function(){
+    var d = document.documentElement;
+    try { if (localStorage.getItem("lang") === "ar") { d.lang = "ar"; d.dir = "rtl"; document.title = "محمد حمدان · مهندس برمجيات"; } } catch(e){}
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      d.classList.add("anim");
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      setTimeout(function(){ if (!window.__live) d.classList.remove("anim"); }, 4000);
+    }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Alexandria:wght@500;700;800&family=Aref+Ruqaa:wght@700&family=Caveat:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090A; --bg-2:#111113; --bg-3:#18181B; --line:#232327; --line-2:#2E2E33;
+  --ink:#F1EFEA; --ink-2:#A9A8A3; --ink-3:#6F6E6A;
+  --red:#EF3B2D; --red-2:#FF5A4B; --red-d:#5A1610;
+  --blue:#3BA0FF;
+  --f-mega:"Anton", "Alexandria", Impact, sans-serif;
+  --f-head:"Inter Tight", "Alexandria", system-ui, sans-serif;
+  --f-body:"Inter Tight", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+  --f-script:"Caveat", cursive;
+  --wrap:min(1240px, 100% - 32px);
+  color-scheme: dark;
+}
+html[lang="ar"]{
+  --f-head:"Alexandria", "Inter Tight", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans Arabic", "Inter Tight", system-ui, sans-serif;
+  --f-script:"Aref Ruqaa", "Caveat", serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;overflow-x:hidden;position:relative}
+html[lang="en"] body{line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--red);color:#fff}
+html[lang="ar"] [data-l="en"], html[lang="en"] [data-l="ar"]{display:none !important}
+.wrap{width:var(--wrap);margin-inline:auto}
+.mono{font-family:var(--f-mono);letter-spacing:.04em;text-transform:uppercase}
+.red{color:var(--red)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg) 78%, transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .sq{width:26px;height:26px;background:var(--red);border-radius:5px;display:grid;place-items:center;font:700 .62rem var(--f-mono);color:#fff}
+.brand b{font:600 .78rem var(--f-mono);letter-spacing:.06em}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--ink-2);font-size:.88rem;transition:color .15s}
+.nav ul a:hover{color:var(--ink)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.collab{display:flex;align-items:center;gap:8px;background:none;border:0;color:var(--ink-3);cursor:pointer;padding:4px;font:500 .68rem var(--f-mono);letter-spacing:.05em}
+.collab .dots{display:flex}
+.collab .dots i{width:20px;height:20px;border-radius:50%;border:2px solid var(--bg);margin-inline-start:-7px;display:grid;place-items:center;font:700 .5rem var(--f-mono);font-style:normal;color:#111}
+.collab .dots i:first-child{margin-inline-start:0}
+.collab:hover{color:var(--ink)}
+html.no-cur .collab{opacity:.5}
+.lang{height:32px;padding:0 12px;border-radius:7px;border:1px solid var(--line-2);background:var(--bg-2);color:var(--ink);font:500 .74rem var(--f-mono);cursor:pointer}
+.lang:hover{border-color:var(--ink-3)}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(28px, 5vw, 56px) 0 clamp(56px, 8vw, 96px);position:relative}
+.mega{font-family:"Anton", Impact, sans-serif;font-size:14vw;line-height:.86;letter-spacing:.005em;color:transparent;-webkit-text-stroke:2px var(--red);white-space:nowrap;margin:0;direction:ltr;text-align:center;user-select:none;text-transform:uppercase}
+.mega span{display:inline-block}
+.idrow{position:relative;margin-top:calc(var(--mega, 160px) * -0.30);padding-inline-start:clamp(4px, 2vw, 28px);z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.hello{font-family:var(--f-script);font-weight:700;font-size:clamp(1.6rem, 3.4vw, 2.6rem);line-height:1;color:var(--ink);transform:rotate(-4deg);margin-inline-start:6px}
+html[lang="ar"] .hello{transform:none;font-size:clamp(1.7rem, 3.4vw, 2.6rem)}
+.nameblock{display:inline-block;background:var(--red);color:#fff;padding:.02em .22em .06em;font-family:"Anton", Impact, sans-serif;font-size:clamp(2.6rem, 6.6vw, 5.4rem);line-height:1.02;letter-spacing:.01em;text-transform:uppercase}
+html[lang="ar"] .nameblock{font-family:"Alexandria", sans-serif;font-weight:800;font-size:clamp(2.1rem, 5.2vw, 4.3rem);padding:.06em .3em .14em;line-height:1.15}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr .9fr;gap:clamp(24px, 3.4vw, 48px);margin-top:28px;align-items:start}
+.role{display:inline-flex;align-items:center;gap:8px;font:500 .72rem var(--f-mono);letter-spacing:.08em;color:var(--ink-2);text-transform:uppercase;margin-bottom:18px}
+.role::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(239,59,45,.18)}
+.intro{font-size:clamp(1rem, 1.3vw, 1.12rem);color:var(--ink-2);margin:0 0 26px;max-width:46ch}
+.intro b{color:var(--ink);font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.cta{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;font:600 .74rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--line-2);border-radius:6px;transition:background .15s, border-color .15s, transform .15s}
+.cta:hover{border-color:var(--ink-2);transform:translateY(-1px)}
+.cta.pri{color:var(--blue);border-color:color-mix(in srgb, var(--blue) 40%, transparent);background:color-mix(in srgb, var(--blue) 8%, transparent)}
+.cta.pri:hover{background:color-mix(in srgb, var(--blue) 16%, transparent)}
+html[dir="rtl"] .cta .ar-flip{transform:scaleX(-1)}
+.stats{display:flex;flex-wrap:wrap;gap:clamp(18px, 3vw, 40px)}
+.stat b{display:block;font:400 clamp(1.8rem, 3vw, 2.4rem)/1 "Anton", sans-serif;color:var(--red);letter-spacing:.01em}
+.stat span{font:500 .66rem var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+html[lang="ar"] .stat span{font-family:var(--f-body);font-size:.82rem;letter-spacing:0;text-transform:none}
+
+.portrait{position:relative;aspect-ratio:4/5;background:var(--red);overflow:hidden;border-radius:4px}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.25) brightness(.95);mix-blend-mode:multiply}
+.portrait .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:"Anton", sans-serif;font-size:clamp(5rem, 11vw, 9rem);color:transparent;-webkit-text-stroke:2px rgba(0,0,0,.55);letter-spacing:.02em}
+.portrait .ph::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg, rgba(0,0,0,.08) 0 1px, transparent 1px 4px)}
+.portrait .cap{position:absolute;bottom:12px;inset-inline-start:12px;background:#0B0B0C;color:var(--ink);font:600 .6rem var(--f-mono);letter-spacing:.08em;padding:5px 9px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;direction:ltr}
+.portrait .cap i{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.portrait.has-photo .ph{display:none}
+
+.focus{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.focus li{padding:14px 0;border-top:1px solid var(--line)}
+.focus li:first-child{border-top:0;padding-top:0}
+.focus .fh{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.focus .n{font:500 .66rem var(--f-mono);color:var(--ink-3)}
+.focus b{display:block;font:600 1rem var(--f-head);margin:2px 0}
+.focus p{margin:0;color:var(--ink-3);font-size:.85rem;line-height:1.55}
+.focus .k{font:500 .6rem var(--f-mono);letter-spacing:.06em;color:var(--red);text-transform:uppercase}
+
+/* ---------- sections ---------- */
+section{padding:clamp(64px, 9vw, 120px) 0;border-top:1px solid var(--line)}
+.sec-idx{font:500 .7rem var(--f-mono);letter-spacing:.08em;color:var(--ink-3);margin:0 0 14px;direction:ltr;text-align:start}
+html[dir="rtl"] .sec-idx{text-align:right}
+.kicker{font:700 .64rem var(--f-mono);letter-spacing:.14em;color:var(--red);text-transform:uppercase;margin:0 0 8px}
+html[lang="ar"] .kicker{font-family:var(--f-body);font-size:.82rem;letter-spacing:0}
+h2{font:700 clamp(1.9rem, 4vw, 3rem)/1.12 var(--f-head);margin:0;letter-spacing:-.02em}
+html[lang="ar"] h2{letter-spacing:0;line-height:1.3}
+.sec-sub{color:var(--ink-2);max-width:56ch;margin:14px 0 0}
+.sec-head{margin-bottom:clamp(36px, 5vw, 56px)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(32px, 6vw, 88px)}
+.about-text p{color:var(--ink-2);font-size:1.04rem;margin:0 0 1.1em;max-width:62ch}
+.about-text p b{color:var(--ink);font-weight:600}
+.quote{border-inline-start:3px solid var(--red);padding:6px 0 6px 20px;padding-inline-start:20px;padding-inline-end:0;margin:28px 0 0;font:600 clamp(1.1rem, 1.8vw, 1.32rem)/1.55 var(--f-head);color:var(--ink)}
+.quote small{display:block;font:500 .66rem var(--f-mono);letter-spacing:.08em;color:var(--ink-3);margin-top:10px;text-transform:uppercase}
+.skills{display:grid;gap:10px}
+.skill{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+.skill .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.skill b{font:600 1.02rem var(--f-head)}
+.lvl{font:600 .58rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+html[lang="ar"] .lvl{font-family:var(--f-body);font-size:.74rem;letter-spacing:0}
+.lvl.pro{background:var(--red);color:#fff}
+.lvl.mid{background:color-mix(in srgb, var(--red) 22%, transparent);color:var(--red-2)}
+.lvl.new{border:1px solid var(--line-2);color:var(--ink-3)}
+.bar{height:3px;background:var(--bg-3);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red)}
+.skill p{margin:10px 0 0;color:var(--ink-3);font-size:.86rem;line-height:1.5}
+.toolrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{font:500 .66rem var(--f-mono);letter-spacing:.04em;padding:5px 9px;border:1px solid var(--line-2);border-radius:4px;color:var(--ink-2);direction:ltr;background:var(--bg)}
+
+/* work */
+.works{display:grid;gap:22px}
+.work{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:clamp(20px, 3vw, 36px);position:relative;overflow:hidden}
+.work::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:3px;background:var(--red)}
+.w-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.pill{display:inline-flex;align-items:center;gap:7px;font:700 .6rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red);border:1px solid color-mix(in srgb, var(--red) 45%, transparent);padding:4px 9px;border-radius:3px}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.w-idx{font:500 .64rem var(--f-mono);color:var(--ink-3);letter-spacing:.08em}
+.w-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px, 4vw, 48px);align-items:center}
+.work h3{font:700 clamp(1.5rem, 2.6vw, 2.1rem)/1.15 var(--f-head);margin:0 0 10px;letter-spacing:-.01em}
+.work h3 small{font:500 .5em var(--f-body);color:var(--ink-3);margin-inline-start:8px}
+.work .desc{color:var(--ink-2);margin:0 0 20px;font-size:.98rem}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:20px}
+.metric{background:var(--bg);padding:12px 14px}
+.metric b{display:block;font:400 1.6rem/1.05 "Anton", sans-serif;color:var(--red);direction:ltr;text-align:start}
+html[dir="rtl"] .metric b{text-align:right}
+.metric span{font:500 .6rem var(--f-mono);letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase}
+html[lang="ar"] .metric span{font-family:var(--f-body);font-size:.76rem;letter-spacing:0}
+.feats{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:6px}
+.feats li{position:relative;padding-inline-start:18px;font-size:.92rem;color:var(--ink-2);line-height:1.55}
+.feats li::before{content:"›";position:absolute;inset-inline-start:2px;top:0;color:var(--red);font-weight:700}
+html[dir="rtl"] .feats li::before{content:"‹"}
+.w-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.w-links{display:flex;flex-wrap:wrap;gap:10px}
+.w-links a{font:600 .66rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--blue);display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid color-mix(in srgb, var(--blue) 35%, transparent);border-radius:4px;transition:background .15s}
+.w-links a:hover{background:color-mix(in srgb, var(--blue) 12%, transparent)}
+html[lang="ar"] .w-links a{font-family:var(--f-body);font-size:.84rem;letter-spacing:0}
+.w-shot{margin:0;border-radius:8px;overflow:hidden;background:var(--tint, #1a1a1d);aspect-ratio:16/11;display:grid;grid-template:minmax(0,1fr)/minmax(0,1fr);place-items:center;padding:clamp(12px, 2vw, 22px);border:1px solid var(--line)}
+.w-shot img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 18px 40px -16px rgba(0,0,0,.6);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.w-shot.tall img{height:100%;width:auto;border-radius:16px}
+.work:hover .w-shot img{transform:scale(1.03)}
+.work:nth-child(even) .w-shot{order:-1}
+
+.myrole{font-size:.9rem;color:var(--ink);margin:0 0 18px;padding:10px 14px;background:color-mix(in srgb, var(--red) 8%, transparent);border-inline-start:2px solid var(--red);line-height:1.6}
+.myrole .t{color:var(--red);font:700 .6rem var(--f-mono);letter-spacing:.12em;text-transform:uppercase;margin-inline-end:8px}
+html[lang="ar"] .myrole .t{font-family:var(--f-body);font-size:.8rem;letter-spacing:0}
+.team{margin:0 0 20px}
+.team-h{font:600 .6rem var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+html[lang="ar"] .team-h{font-family:var(--f-body);font-size:.8rem;letter-spacing:0}
+.team ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));gap:6px}
+.team li{display:flex;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.team li i{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 .6rem var(--f-mono);font-style:normal;background:var(--bg-3);color:var(--ink-2);border:1px solid var(--line-2)}
+.team li.me{border-color:color-mix(in srgb, var(--red) 40%, transparent)}
+.team li.me i{background:var(--red);color:#fff;border-color:var(--red)}
+.team li b{display:block;font:600 .84rem/1.3 "Inter Tight", sans-serif}
+.team li span{display:block;font-size:.74rem;color:var(--ink-3);line-height:1.4}
+.team a{text-decoration:none}
+.team a:hover b{color:var(--blue)}
+
+/* certificates */
+.certs{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px}
+.cert{display:flex;flex-direction:column;text-decoration:none;background:var(--bg-2);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s, transform .2s}
+.cert:hover{border-color:var(--red);transform:translateY(-3px)}
+.c-img{aspect-ratio:1.38;background:#fff;overflow:hidden;border-bottom:1px solid var(--line)}
+.c-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.cert:hover .c-img img{transform:scale(1.04)}
+.c-body{padding:14px 16px 16px;display:grid;gap:3px}
+.c-org{font:700 .58rem var(--f-mono);letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+.c-body b{font:600 1.02rem/1.35 "Inter Tight", sans-serif;direction:ltr;text-align:start}
+html[dir="rtl"] .c-body b{text-align:right}
+.c-meta{font:500 .62rem var(--f-mono);letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase;display:flex;justify-content:space-between;gap:8px}
+.c-meta em{font-style:normal;color:var(--blue)}
+#lb{border:0;padding:0;background:transparent;max-width:min(1100px, 94vw);max-height:92vh;overflow:visible}
+#lb::backdrop{background:rgba(5,5,6,.86);backdrop-filter:blur(4px)}
+#lb img{max-width:100%;max-height:88vh;border-radius:6px;display:block}
+#lb button{position:absolute;top:10px;inset-inline-end:10px;width:36px;height:36px;border-radius:50%;border:0;background:#0B0B0C;color:#fff;font-size:18px;cursor:pointer}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.step{background:var(--bg);padding:24px 22px 28px}
+.step .n{font:400 2.4rem/1 "Anton", sans-serif;color:transparent;-webkit-text-stroke:1.2px var(--red);display:block;margin-bottom:16px}
+.step b{display:block;font:600 1.04rem var(--f-head);margin-bottom:6px}
+.step p{margin:0;color:var(--ink-3);font-size:.9rem;line-height:1.55}
+
+/* contact */
+.contact{padding-bottom:40px}
+.big{font-family:"Anton", sans-serif;font-size:clamp(3.4rem, 12vw, 10rem);line-height:.9;margin:0 0 28px;text-transform:uppercase;letter-spacing:.005em}
+.big .o{color:transparent;-webkit-text-stroke:2px var(--red)}
+html[lang="ar"] .big{font-family:"Alexandria", sans-serif;font-weight:800;font-size:clamp(2.8rem, 9vw, 7.4rem);line-height:1.1}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px, 4vw, 64px);align-items:end}
+.c-grid > p{color:var(--ink-2);font-size:1.08rem;max-width:44ch;margin:0}
+.c-links{display:grid;border-top:1px solid var(--line)}
+.c-links a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 2px;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .2s, color .2s}
+.c-links a:hover{padding-inline:12px;color:var(--red)}
+.c-links .k{font:500 .64rem var(--f-mono);letter-spacing:.1em;color:var(--ink-3)}
+.c-links .v{font:500 .9rem var(--f-mono);direction:ltr;overflow-wrap:anywhere}
+footer{padding:28px 0 40px;border-top:1px solid var(--line);margin-top:56px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:500 .64rem var(--f-mono);letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase}
+
+/* ---------- live build layer ---------- */
+#bp{position:absolute;top:0;left:0;width:100%;height:0;pointer-events:none;z-index:30}
+.wire{position:absolute;border:1px dashed rgba(59,160,255,.38);background:rgba(59,160,255,.03);border-radius:2px;transition:opacity .45s ease}
+.wire em{position:absolute;top:-17px;left:-1px;font:500 9px/1 var(--f-mono);font-style:normal;color:rgba(59,160,255,.75);white-space:nowrap;letter-spacing:.03em;direction:ltr}
+.wire.gone{opacity:0}
+.sel{position:absolute}
+.sel .box{position:absolute;top:0;width:0;height:0;border:1.5px solid var(--c, var(--blue));transition:width .44s cubic-bezier(.65,0,.35,1), height .44s cubic-bezier(.65,0,.35,1), opacity .3s}
+.sel.l .box{left:0} .sel.r .box{right:0}
+.sel.draw .box{width:100%;height:100%}
+.sel.fast .box{transition-duration:.26s}
+.sel .box i{position:absolute;width:7px;height:7px;background:#fff;border:1.5px solid var(--c, var(--blue));border-radius:1px}
+.sel .box i:nth-child(1){top:-4px;left:-4px} .sel .box i:nth-child(2){top:-4px;right:-4px}
+.sel .box i:nth-child(3){bottom:-4px;left:-4px} .sel .box i:nth-child(4){bottom:-4px;right:-4px}
+.sel .tag{position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);background:var(--c, var(--blue));color:#fff;font:600 9.5px/1 var(--f-mono);padding:4px 6px;border-radius:3px;white-space:nowrap;opacity:0;transition:opacity .2s .35s;direction:ltr}
+.sel.draw .tag{opacity:1}
+.sel.out .box,.sel.out .tag{opacity:0;transition:opacity .3s}
+
+.anim [data-b]{opacity:0}
+.anim [data-b].built{opacity:1;animation:rise .65s cubic-bezier(.2,.7,.2,1) both}
+.anim [data-b][data-fx="wipe"].built{animation:wipe .9s cubic-bezier(.7,0,.2,1) both}
+html.anim[dir="rtl"] [data-b][data-fx="wipe"].built{animation-name:wipe-r}
+.anim [data-b][data-fx="mega"].built{animation:wipe 1.25s cubic-bezier(.7,0,.2,1) both}
+.anim [data-b].instant{animation:fade .35s ease both}
+@keyframes rise{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(8px)}to{opacity:1;clip-path:inset(0 0 -10% 0);transform:none}}
+@keyframes wipe{from{opacity:1;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 -2% 0 0)}}
+@keyframes wipe-r{from{opacity:1;clip-path:inset(0 0 0 100%)}to{opacity:1;clip-path:inset(0 0 0 -2%)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+#grid{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity 1.2s ease;background-image:linear-gradient(rgba(59,160,255,.06) 1px, transparent 1px),linear-gradient(90deg, rgba(59,160,255,.06) 1px, transparent 1px);background-size:48px 48px}
+html.grid-on #grid{opacity:1}
+main, .nav, footer{position:relative;z-index:2}
+
+#boot{position:fixed;inset:0;z-index:55;background:var(--bg);display:none;place-items:center;transition:opacity .6s ease, visibility .6s}
+.anim #boot{display:grid}
+#boot.off{opacity:0;visibility:hidden}
+#boot .chip-c{display:flex;flex-direction:column;align-items:center;gap:14px}
+#boot .core{width:46px;height:46px;border-radius:11px;background:var(--bg-3);border:1px solid var(--line-2);display:grid;place-items:center;font:700 .72rem var(--f-mono);color:var(--ink-2);animation:pulse 1.4s ease-in-out infinite}
+#boot .msg{font:500 .66rem var(--f-mono);letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase;direction:ltr}
+@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(239,59,45,.0), 0 0 0 1px rgba(239,59,45,.5)}}
+
+#cursors{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden;transition:opacity .4s}
+html.no-cur #cursors{opacity:0}
+.cur{position:absolute;left:0;top:0;will-change:transform}
+.cur svg{width:20px;height:20px;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}
+.cur span{position:absolute;left:14px;top:17px;font:600 10px/1 var(--f-mono);padding:4px 7px;border-radius:4px 10px 10px 10px;white-space:nowrap;letter-spacing:.02em}
+
+#skip{position:fixed;bottom:18px;inset-inline-end:18px;z-index:61;display:none;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);background:color-mix(in srgb, var(--bg) 85%, transparent);color:var(--ink-2);font:600 .62rem var(--f-mono);letter-spacing:.1em;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.anim #skip{display:inline-flex}
+#skip:hover{color:var(--ink);border-color:var(--ink-3)}
+#skip.hide{display:none}
+
+@media (max-width: 1000px){
+  .hero-grid{grid-template-columns:1fr 1fr}
+  .hero-grid .h-intro{grid-column:1 / -1}
+  .about-grid,.w-grid,.c-grid{grid-template-columns:1fr}
+  .work:nth-child(even) .w-shot{order:0}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .certs{grid-template-columns:repeat(2,1fr)}
+  .nav ul{display:none}
+}
+@media (max-width: 600px){
+  .hero-grid{grid-template-columns:1fr}
+  .portrait{max-width:300px}
+  .mega{-webkit-text-stroke-width:1.2px}
+  .steps{grid-template-columns:1fr}
+  .certs{grid-template-columns:1fr 1fr;gap:10px}
+  .c-body{padding:10px 12px 12px}
+  .c-body b{font-size:.88rem}
+  .metrics{grid-template-columns:repeat(3,1fr)}
+  .metric{padding:10px}
+  .metric b{font-size:1.25rem}
+  .collab .lbl{display:none}
+  .w-shot{aspect-ratio:auto}
+  .w-shot.tall{aspect-ratio:4/3.6}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+
+<div id="grid" aria-hidden="true"></div>
+<div id="bp" aria-hidden="true"></div>
+<div id="cursors" aria-hidden="true"></div>
+<div id="boot" aria-hidden="true"><div class="chip-c"><div class="core">MH</div><div class="msg" id="bootMsg">connecting collaborators · 0/6</div></div></div>
+<dialog id="lb"><img alt=""><button type="button" aria-label="Close">×</button></dialog>
+<button id="skip" type="button"><span data-l="ar">تخطَّ الأنيميشن</span><span data-l="en">SKIP INTRO</span> ⏭</button>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" data-b data-n="brand" data-p="3"><span class="sq">MH</span><b>MOHAMMED<span class="red">.</span></b></a>
+    <ul data-b data-n="nav.links" data-p="3">
+      <li><a href="#about"><span data-l="ar">عنّي</span><span data-l="en">About</span></a></li>
+      <li><a href="#work"><span data-l="ar">المشاريع</span><span data-l="en">Work</span></a></li>
+      <li><a href="#process"><span data-l="ar">طريقتي</span><span data-l="en">Process</span></a></li>
+      <li><a href="#certs"><span data-l="ar">الشهادات</span><span data-l="en">Certificates</span></a></li>
+      <li><a href="#contact"><span data-l="ar">تواصل</span><span data-l="en">Contact</span></a></li>
+    </ul>
+    <div class="nav-r" data-b data-n="nav.tools" data-p="3">
+      <button class="collab" id="collabBtn" type="button" title="Show / hide cursors">
+        <span class="dots" id="dots"></span><span class="lbl" id="collabLbl">6 LIVE</span>
+      </button>
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language"><span data-l="ar">EN</span><span data-l="en">عربي</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" style="border-top:0">
+  <div class="wrap">
+    <h1 class="mega" id="mega" data-b data-fx="mega" data-n="h1.mega" data-p="0" aria-label="Engineer"><span>Engineer.</span></h1>
+    <div class="idrow">
+      <div class="hello" data-b data-n="script" data-p="1"><span data-l="ar">أهلاً، أنا</span><span data-l="en">Hello, I'm</span></div>
+      <div class="nameblock" data-b data-fx="wipe" data-n="name.block" data-p="1"><span data-l="ar">محمد حمدان.</span><span data-l="en">Mohammed.</span></div>
+    </div>
+
+    <div class="hero-grid">
+      <div class="h-intro">
+        <div class="role" data-b data-n="role" data-p="2"><span data-l="ar">مهندس برمجيات · Java · Python · Flutter</span><span data-l="en">Software Engineer · Java · Python · Flutter</span></div>
+        <p class="intro" data-b data-n="p.intro" data-p="2">
+          <span data-l="ar">بكتب <b>Java وPython</b>، وببني <b>تطبيقات Flutter ومنصات ويب</b> شغّالة اليوم بصيدليات وكافيهات وبين طلاب الجامعة، وبصمّم <b>أوامر وسير عمل بالذكاء الاصطناعي</b>. الذكاء الاصطناعي بيسرّعني، بس الهندسة إلي.</span>
+          <span data-l="en">I write <b>Java and Python</b>, ship <b>Flutter apps and web platforms</b> that run today in pharmacies, cafés and classrooms, and design <b>prompts and AI workflows</b>. AI helps me move faster — the engineering is mine.</span>
+        </p>
+        <div class="ctas" data-b data-n="cta.group" data-p="2">
+          <a class="cta pri" href="#work"><span data-l="ar">شوف المشاريع</span><span data-l="en">View projects</span> <span class="ar-flip">→</span></a>
+          <a class="cta" href="#contact"><span data-l="ar">تواصل معي</span><span data-l="en">Contact</span></a>
+        </div>
+        <div class="stats" data-b data-n="stats" data-p="2">
+          <div class="stat"><b>6</b><span data-l="ar">منتجات منشورة</span><span data-l="en">shipped products</span></div>
+          <div class="stat"><b>7</b><span data-l="ar">شهادات</span><span data-l="en">certificates</span></div>
+          <div class="stat"><b>75</b><span data-l="ar">اختبار آلي في دوز</span><span data-l="en">tests on Dose</span></div>
+        </div>
+      </div>
+
+      <figure class="portrait" id="portrait" data-b data-fx="wipe" data-n="img.portrait" data-p="2" style="margin:0">
+        <img src="assets/me.jpg" alt="Mohammed Hamdan" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()">
+        <div class="ph">MH</div>
+        <figcaption class="cap"><i></i><span id="capTxt">PHOTO · COMING SOON</span></figcaption>
+      </figure>
+
+      <ul class="focus">
+        <li data-b data-n="li.focus" data-p="2"><div class="fh"><span class="n">01</span><span class="k">Flutter · Firebase</span></div>
+          <b><span data-l="ar">تطبيقات موبايل</span><span data-l="en">Mobile apps</span></b>
+          <p><span data-l="ar">تطبيقات أندرويد تُباع وتشتغل حتى بلا نت.</span><span data-l="en">Android apps that sell and work offline.</span></p></li>
+        <li data-b data-n="li.focus" data-p="2"><div class="fh"><span class="n">02</span><span class="k">React · Node · JS</span></div>
+          <b><span data-l="ar">منصات ويب</span><span data-l="en">Web platforms</span></b>
+          <p><span data-l="ar">من منيو الكافيه إلى خريطة مهارات الطلاب.</span><span data-l="en">From café menus to student skill roadmaps.</span></p></li>
+        <li data-b data-n="li.focus" data-p="2"><div class="fh"><span class="n">03</span><span class="k">Prompts · AI</span></div>
+          <b><span data-l="ar">هندسة الأوامر</span><span data-l="en">Prompt engineering</span></b>
+          <p><span data-l="ar">أوامر وسير عمل ذكية، بشهادات من Anthropic وGoogle.</span><span data-l="en">Prompts and AI workflows, certified by Anthropic and Google.</span></p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-idx" data-b data-n="label">//01.00 SEC_ABOUT · INDEX [01/05]</p>
+      <p class="kicker" data-b data-n="kicker"><span data-l="ar">ملف المهندس</span><span data-l="en">Engineer profile</span></p>
+      <h2 data-b data-n="h2"><span data-l="ar">مين أنا وكيف بشتغل</span><span data-l="en">Who I am &amp; how I build</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-b data-n="p"><span data-l="ar">أنا محمد خيري أحمد حمدان، مهندس برمجيات من غزة وطالب بجامعة فلسطين. أساسي <b>Java</b>: برمجة كائنية وهياكل بيانات ومشاريع حقيقية، وبشتغل بـ <b>Python</b> بالأتمتة ومعالجة البيانات وتعلّم الآلة.</span><span data-l="en">I'm Mohammed Khairi Ahmed Hamdan, a software engineer from Gaza and a student at the University of Palestine. My foundation is <b>Java</b> — OOP, data structures and real projects — and I work in <b>Python</b> for automation, data processing and machine learning.</span></p>
+        <p data-b data-n="p"><span data-l="ar">فوق هيك ببني تطبيقات <b>Flutter</b> منشورة على Google Play وشغّالة بمحلات حقيقية، وأنا <b>مهندس أوامر (Prompt Engineer)</b>: بصمّم الأوامر وسير العمل بالذكاء الاصطناعي، ومعي شهادات فيها من Anthropic وGoogle ومبادرة مليون خبير لأوامر الذكاء الاصطناعي. وهلق بتعلّم <b>Figma</b> عشان أصمّم قبل ما أكتب الكود.</span><span data-l="en">On top of that I ship <b>Flutter</b> apps that are on Google Play and running in real shops, and I'm a <b>prompt engineer</b>: I design prompts and AI workflows, with certificates from Anthropic, Google and the One Million Prompters initiative. I'm now learning <b>Figma</b> to design before I code.</span></p>
+        <blockquote class="quote" data-b data-n="blockquote"><span data-l="ar">«الـ Vibe Coding أداة من أدواتي، مش كل شي. بفهم الكود اللي بكتبه بـ Java وPython وبراجعه وبختبره، والذكاء الاصطناعي بيسرّعني بالأجزاء اللي ما بتحتاجني.»</span><span data-l="en">“Vibe coding is one tool in my kit, not the whole kit. I understand, review and test the code I write in Java and Python — AI just speeds me up on the parts that don't need me.”</span><small>— Mohammed Hamdan</small></blockquote>
+      </div>
+      <div class="skills">
+        <div class="skill" data-b data-n="card.skill"><div class="top"><b>Java</b><span class="lvl pro"><span data-l="ar">خبرة</span><span data-l="en">Experienced</span></span></div><div class="bar"><i style="width:84%"></i></div><p><span data-l="ar">OOP، هياكل بيانات، Maven · شهادة 50 ساعة.</span><span data-l="en">OOP, data structures, Maven · 50-hour certificate.</span></p></div>
+        <div class="skill" data-b data-n="card.skill"><div class="top"><b>Flutter · Dart</b><span class="lvl pro"><span data-l="ar">خبرة</span><span data-l="en">Experienced</span></span></div><div class="bar"><i style="width:86%"></i></div><p><span data-l="ar">تطبيقات منشورة مع Firebase واختبارات.</span><span data-l="en">Shipped apps with Firebase and tests.</span></p></div>
+        <div class="skill" data-b data-n="card.skill"><div class="top"><b>Python</b><span class="lvl pro"><span data-l="ar">خبرة</span><span data-l="en">Experienced</span></span></div><div class="bar"><i style="width:76%"></i></div><p><span data-l="ar">أتمتة، معالجة بيانات، وتعلّم آلة.</span><span data-l="en">Automation, data processing, machine learning.</span></p></div>
+        <div class="skill" data-b data-n="card.skill"><div class="top"><b><span data-l="ar">هندسة الأوامر</span><span data-l="en">Prompt Engineering</span></b><span class="lvl pro"><span data-l="ar">خبرة</span><span data-l="en">Experienced</span></span></div><div class="bar"><i style="width:84%"></i></div><p><span data-l="ar">أوامر وسير عمل بالذكاء الاصطناعي · Claude وMCP.</span><span data-l="en">Prompts and AI workflows · Claude &amp; MCP.</span></p></div>
+        <div class="skill" data-b data-n="card.skill"><div class="top"><b>Figma</b><span class="lvl new"><span data-l="ar">أتعلّمها</span><span data-l="en">Learning</span></span></div><div class="bar"><i style="width:30%"></i></div><p><span data-l="ar">تصميم الواجهات قبل الكود.</span><span data-l="en">Designing UI before code.</span></p></div>
+        <div class="toolrow" data-b data-n="chips"><span class="chip">Firebase</span><span class="chip">Firestore</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">SQL</span><span class="chip">Git</span><span class="chip">Claude Code</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-idx" data-b data-n="label">//02.00 SEC_WORK · INDEX [02/05]</p>
+      <p class="kicker" data-b data-n="kicker"><span data-l="ar">أعمال منشورة</span><span data-l="en">Shipped work</span></p>
+      <h2 data-b data-n="h2"><span data-l="ar">مشاريع شغّالة، مش بس تجارب</span><span data-l="en">Live products, not just experiments</span></h2>
+      <p class="sec-sub" data-b data-n="p.sub"><span data-l="ar">كل مشروع هون منشور: تطبيق بينباع، أو موقع بتقدر تجرّبه هلق.</span><span data-l="en">Every project here is shipped: an app on sale, or a site you can try right now.</span></p>
+    </div>
+
+    <div class="works">
+      <!-- DOSE -->
+      <article class="work">
+        <div class="w-top" data-b data-n="w.header"><span class="pill"><span data-l="ar">منتج تجاري · Flutter</span><span data-l="en">Commercial · Flutter</span></span><span class="w-idx">PRJ_01 / DOSE</span></div>
+        <div class="w-grid">
+          <div>
+            <h3 data-b data-n="h3">Dose <small>دوز</small></h3>
+            <p class="desc" data-b data-n="p.desc"><span data-l="ar">تطبيق محاسبة ومخزون للصيدليات والمحلات بفلسطين. صاحب المحل بيمسح باركود الصنف بكاميرا الجوال، فبينخصم من المخزون وبتطلع الفاتورة فوراً، بلا كاشير ولا لابتوب، وحتى لو النت مقطوع.</span><span data-l="en">Accounting and inventory for pharmacies and shops in Palestine. The owner scans a barcode with the phone camera, stock updates and the invoice is issued instantly — no cashier, no laptop, even offline.</span></p>
+            <div class="metrics" data-b data-n="metrics">
+              <div class="metric"><b>75</b><span data-l="ar">اختبار آلي</span><span data-l="en">tests</span></div>
+              <div class="metric"><b>4</b><span data-l="ar">طرق دفع</span><span data-l="en">pay modes</span></div>
+              <div class="metric"><b>PDF·XLS</b><span data-l="ar">تقارير</span><span data-l="en">reports</span></div>
+            </div>
+            <ul class="feats" data-b data-n="ul.features">
+              <li><span data-l="ar">مسح باركود بوضعين: بيع بيخصم، وإدخال بضاعة بيزيد</span><span data-l="en">Barcode scanning: sale deducts, restock adds</span></li>
+              <li><span data-l="ar">كاش، تطبيق، دين، و«نص نص» بيقسم المبلغ</span><span data-l="en">Cash, app, debt, and split payments</span></li>
+              <li><span data-l="ar">دفتر ديون بكشف حساب لكل زبون، وفاتورة QR</span><span data-l="en">Debt ledger per customer, plus QR invoices</span></li>
+            </ul>
+            <div class="w-stack" data-b data-n="stack"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Firebase Auth</span><span class="chip">Firestore</span></div>
+            <div class="w-links" data-b data-n="links">
+              <a href="https://muhasibi-app.web.app" target="_blank" rel="noopener"><span data-l="ar">صفحة التطبيق</span><span data-l="en">Product page</span> ↗</a>
+              <a href="https://muhasibi-web.web.app" target="_blank" rel="noopener"><span data-l="ar">نسخة الويب</span><span data-l="en">Web app</span> ↗</a>
+            </div>
+          </div>
+          <figure class="w-shot" style="--tint:#E3F1EB" data-b data-fx="wipe" data-n="img.screenshot"><img src="assets/dose.jpg" alt="Dose app feature sheet" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <!-- MUNJAZ -->
+      <article class="work">
+        <div class="w-top" data-b data-n="w.header"><span class="pill"><span data-l="ar">على Google Play · Flutter</span><span data-l="en">On Google Play · Flutter</span></span><span class="w-idx">PRJ_02 / MUNJAZ</span></div>
+        <div class="w-grid">
+          <div>
+            <h3 data-b data-n="h3">Munjaz <small>منجز</small></h3>
+            <p class="desc" data-b data-n="p.desc"><span data-l="ar">تطبيق مهام ما بيصدّقك على كلمتك: ما بتشطب المهمة إلا لما تصوّر إثباتك ويوافق عليه صاحبك. كل مستخدم طالب ومدقّق بنفس الوقت، والنقاط ما بتيجي إلا بموافقة إنسان تاني.</span><span data-l="en">A to-do app that doesn't take your word for it: a task is only checked off once you photograph proof and a friend approves it. Every user is both a student and a reviewer — points come only from another person's approval.</span></p>
+            <div class="metrics" data-b data-n="metrics">
+              <div class="metric"><b>PLAY</b><span data-l="ar">منشور ومجاني</span><span data-l="en">live &amp; free</span></div>
+              <div class="metric"><b>0</b><span data-l="ar">إعلانات</span><span data-l="en">ads</span></div>
+              <div class="metric"><b>6</b><span data-l="ar">مستويات جوائز</span><span data-l="en">badge levels</span></div>
+            </div>
+            <ul class="feats" data-b data-n="ul.features">
+              <li><span data-l="ar">مؤقّت دراسة بيضل شغّال حتى بعد ما تسكّر التطبيق</span><span data-l="en">Study timer that keeps running after you close the app</span></li>
+              <li><span data-l="ar">محادثة مع المدقّق بتنحذف لحالها بعد 48 ساعة</span><span data-l="en">Chat with your reviewer that auto-deletes after 48 hours</span></li>
+              <li><span data-l="ar">تحدّي خاص برمز لمجموعتك بترتيب أسبوعي، وعدّاد حماسة يومي</span><span data-l="en">Private code-based group challenges with weekly ranking, plus a daily streak</span></li>
+            </ul>
+            <div class="w-stack" data-b data-n="stack"><span class="chip">Flutter</span><span class="chip">Firebase Auth</span><span class="chip">Firestore Rules</span><span class="chip">OneSignal</span><span class="chip">Cloudinary</span></div>
+            <div class="w-links" data-b data-n="links">
+              <a href="https://play.google.com/store/apps/details?id=com.munjaz.app" target="_blank" rel="noopener">Google Play ↗</a>
+              <a href="https://munjaz-app-2024.web.app" target="_blank" rel="noopener"><span data-l="ar">نسخة الويب</span><span data-l="en">Web app</span> ↗</a>
+              <a href="https://munjaz-app-2024.web.app/about.html" target="_blank" rel="noopener"><span data-l="ar">عن التطبيق</span><span data-l="en">About</span> ↗</a>
+            </div>
+          </div>
+          <figure class="w-shot" style="--tint:#0B141A" data-b data-fx="wipe" data-n="img.screenshot"><img src="assets/munjaz.jpg" alt="Munjaz app screens" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <!-- DOSE 2 -->
+      <article class="work">
+        <div class="w-top" data-b data-n="w.header"><span class="pill"><span data-l="ar">عميل ثاني · Firebase</span><span data-l="en">Second client · Firebase</span></span><span class="w-idx">PRJ_03 / DOSE_2</span></div>
+        <div class="w-grid">
+          <div>
+            <h3 data-b data-n="h3">Dose 2 <small>دوز 2</small></h3>
+            <p class="desc" data-b data-n="p.desc"><span data-l="ar">نسخة مستقلة تماماً من دوز لعميل تاني: نفس التطبيق، بس ببنية منفصلة بالكامل. إله حساب Google ومشروع Firebase وقاعدة بيانات واستضافة خاصة، والنسختين ما بيتشاركوا بأي بيانات.</span><span data-l="en">A fully independent deployment of Dose for a second client: same app, completely separate infrastructure — its own Google account, Firebase project, database and hosting. The two never share data.</span></p>
+            <div class="metrics" data-b data-n="metrics">
+              <div class="metric"><b>0</b><span data-l="ar">بيانات مشتركة</span><span data-l="en">shared data</span></div>
+              <div class="metric"><b>2</b><span data-l="ar">منصات</span><span data-l="en">platforms</span></div>
+              <div class="metric"><b>QR</b><span data-l="ar">فاتورة الزبون</span><span data-l="en">invoices</span></div>
+            </div>
+            <ul class="feats" data-b data-n="ul.features">
+              <li><span data-l="ar">معرّف أندرويد مستقل وقناة تحديث خاصة</span><span data-l="en">Separate Android ID and its own update channel</span></li>
+              <li><span data-l="ar">نسخة ويب منشورة لمستخدمي الآيفون</span><span data-l="en">Published web build for iPhone users</span></li>
+              <li><span data-l="ar">ملف تسليم موثّق بيمنع خلط الحسابات</span><span data-l="en">Documented handoff that keeps deployments apart</span></li>
+            </ul>
+            <div class="w-stack" data-b data-n="stack"><span class="chip">Flutter</span><span class="chip">Firebase Hosting</span><span class="chip">Firestore</span></div>
+            <div class="w-links" data-b data-n="links"><a href="https://dose2.web.app" target="_blank" rel="noopener"><span data-l="ar">جرّب نسخة الويب</span><span data-l="en">Try the web app</span> ↗</a></div>
+          </div>
+          <figure class="w-shot" style="--tint:#E3F1EB" data-b data-fx="wipe" data-n="img.screenshot"><img src="assets/dose2.jpg" alt="Dose 2 screens" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <!-- ILAF -->
+      <article class="work">
+        <div class="w-top" data-b data-n="w.header"><span class="pill"><span data-l="ar">نموذج جاهز للتجربة · مطاعم</span><span data-l="en">Prototype · F&amp;B</span></span><span class="w-idx">PRJ_04 / ILAF</span></div>
+        <div class="w-grid">
+          <div>
+            <h3 data-b data-n="h3">Ilaf <small>إيلاف</small></h3>
+            <p class="desc" data-b data-n="p.desc"><span data-l="ar">منصة طلب ذكية للكافيهات والمطاعم. الزبون بيدخل رقم طاولته وبيطلب من المنيو، الكاشير بيستلم الطلب وبيتابعه، وصاحب المنصة بيدير كل المحلات من لوحة وحدة.</span><span data-l="en">A smart ordering platform for cafés and restaurants. Customers order from the table, the cashier tracks every order, and the platform owner manages all stores from one dashboard.</span></p>
+            <div class="metrics" data-b data-n="metrics">
+              <div class="metric"><b>3</b><span data-l="ar">واجهات</span><span data-l="en">interfaces</span></div>
+              <div class="metric"><b>AI</b><span data-l="ar">مساعد «نديم»</span><span data-l="en">assistant</span></div>
+              <div class="metric"><b>2</b><span data-l="ar">كافيه ومطعم</span><span data-l="en">store types</span></div>
+            </div>
+            <ul class="feats" data-b data-n="ul.features">
+              <li><span data-l="ar">منيو بـ QR، سلة، تتبّع الطلب، ونداء الجرسون</span><span data-l="en">QR menu, cart, order tracking, and waiter call</span></li>
+              <li><span data-l="ar">لوحة كاشير: الصالة والطلبات حسب المرحلة والعروض</span><span data-l="en">Cashier view: floor, orders by stage, promos</span></li>
+              <li><span data-l="ar">لون خاص لكل محل، وضع ليلي، وتجميد حسابات</span><span data-l="en">Per-store branding, dark mode, account freezing</span></li>
+            </ul>
+            <div class="w-stack" data-b data-n="stack"><span class="chip">JavaScript</span><span class="chip">HTML · CSS</span><span class="chip">Node.js</span><span class="chip">GitHub Pages</span></div>
+            <p class="myrole" data-b data-n="p.role"><span class="t"><span data-l="ar">دوري</span><span data-l="en">My role</span></span><span data-l="ar">بنيت منطق الواجهة والسيرفر، ومفاتيح تبديل الثيم، وربط الحالة بين الشاشات، واختبرت النظام كامل.</span><span data-l="en">Built the frontend and backend logic, the custom theme switches and state integration, and ran full-system testing.</span></p>
+            <div class="team" data-b data-n="team"><p class="team-h"><span data-l="ar">الفريق · شخصين</span><span data-l="en">Team · 2 people</span></p><ul><li class="me"><i>MH</i><div><a href="https://www.linkedin.com/in/%D9%85%D8%AD%D9%85%D8%AF-%D8%AD%D9%85%D8%AF%D8%A7%D9%86-0646453b0/" target="_blank" rel="noopener"><b>Mohammed Hamdan</b></a><span data-l="ar">مهندس البرمجيات الرئيسي · Full-Stack</span><span data-l="en">Lead Software Engineer · Full-Stack</span></div></li><li><i>NA</i><div><a href="https://www.linkedin.com/in/nancy-aburuqa-4ba072351/" target="_blank" rel="noopener"><b>Nancy Aburuqa</b></a><span data-l="ar">مديرة المشروع · تحليل، جودة، وتصميم UI</span><span data-l="en">Project Manager · Data, QA &amp; UI</span></div></li></ul></div>
+            <div class="w-links" data-b data-n="links">
+              <a href="https://ilaf-onlinerestaurantecosystem.github.io/ilaf-demo/" target="_blank" rel="noopener"><span data-l="ar">جرّب الديمو</span><span data-l="en">Live demo</span> ↗</a>
+              <a href="https://github.com/ILAF-OnlineRestaurantEcosystem/ilaf" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+          <figure class="w-shot tall" style="--tint:#EFE6DA" data-b data-fx="wipe" data-n="img.screenshot"><img src="assets/ilaf.jpg" alt="Ilaf customer menu" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <!-- GAPPER -->
+      <article class="work">
+        <div class="w-top" data-b data-n="w.header"><span class="pill"><span data-l="ar">نسخة أولى · تعليم</span><span data-l="en">Early version · EdTech</span></span><span class="w-idx">PRJ_05 / GAPPER</span></div>
+        <div class="w-grid">
+          <div>
+            <h3 data-b data-n="h3">Gapper</h3>
+            <p class="desc" data-b data-n="p.desc"><span data-l="ar">منصة ويب بتدلّ طلاب علم وهندسة الحاسوب على المهارات اللي بيحتاجوها بكل سنة وفصل: ليش مهمة، وكيف يتدربوا عليها، ولوين وصلوا.</span><span data-l="en">A platform that guides CS and Computer Engineering students to the skills they need each year and semester: why each matters, how to practice it, and how far they've come.</span></p>
+            <div class="metrics" data-b data-n="metrics">
+              <div class="metric"><b>4</b><span data-l="ar">سنين بالخريطة</span><span data-l="en">years mapped</span></div>
+              <div class="metric"><b>50</b><span data-l="ar">مصدر</span><span data-l="en">resources</span></div>
+              <div class="metric"><b>AR·EN</b><span data-l="ar">لغتين</span><span data-l="en">bilingual</span></div>
+            </div>
+            <ul class="feats" data-b data-n="ul.features">
+              <li><span data-l="ar">خريطة مسار مع المتطلبات السابقة لكل مهارة</span><span data-l="en">Roadmap with prerequisites for every skill</span></li>
+              <li><span data-l="ar">لكل مهارة خطوات تعلّم ومهمة عملية ومصادر</span><span data-l="en">Each skill: learning steps, a task, resources</span></li>
+              <li><span data-l="ar">تجربة كضيف بلا حساب، وبتشتغل على الجوال</span><span data-l="en">Guest mode, fully mobile</span></li>
+            </ul>
+            <div class="w-stack" data-b data-n="stack"><span class="chip">React 19</span><span class="chip">Vite</span><span class="chip">Express</span><span class="chip">libSQL</span></div>
+            <p class="myrole" data-b data-n="p.role"><span class="t"><span data-l="ar">دوري</span><span data-l="en">My role</span></span><span data-l="ar">صمّمت وحدات النظام، وبنيت الباك إند، وربطت تدفّق البيانات بين الواجهة والسيرفر.</span><span data-l="en">Architected the system modules, built the backend, and integrated data flow between client and server.</span></p>
+            <div class="team" data-b data-n="team"><p class="team-h"><span data-l="ar">الفريق · 5 أشخاص</span><span data-l="en">Team · 5 people</span></p><ul><li class="me"><i>MH</i><div><a href="https://www.linkedin.com/in/%D9%85%D8%AD%D9%85%D8%AF-%D8%AD%D9%85%D8%AF%D8%A7%D9%86-0646453b0/" target="_blank" rel="noopener"><b>Mohammed Hamdan</b></a><span data-l="ar">مهندس البرمجيات الرئيسي · Full-Stack</span><span data-l="en">Lead Software Engineer · Full-Stack</span></div></li><li><i>NA</i><div><a href="https://www.linkedin.com/in/nancy-aburuqa-4ba072351/" target="_blank" rel="noopener"><b>Nancy Aburuqa</b></a><span data-l="ar">مديرة المشروع · Product Owner</span><span data-l="en">Project Manager · Product Owner</span></div></li><li><i>AA</i><div><a href="https://www.linkedin.com/in/aseel-aburuqa-078781425/" target="_blank" rel="noopener"><b>Aseel Aburuqa</b></a><span data-l="ar">تصميم UI/UX · Frontend</span><span data-l="en">UI/UX Designer · Frontend</span></div></li><li><i>NA</i><div><b>Nada Al-Owaidat</b><span data-l="ar">تحليل بيانات · محتوى</span><span data-l="en">Data Analyst · Content</span></div></li><li><i>DA</i><div><a href="https://www.linkedin.com/in/doaa-al-yazji-1b8b88392/" target="_blank" rel="noopener"><b>Doaa Al-Yazji</b></a><span data-l="ar">مهندسة جودة · اختبار</span><span data-l="en">QA Engineer · Testing</span></div></li></ul></div>
+            <div class="w-links" data-b data-n="links"><a href="https://gapper.onrender.com/" target="_blank" rel="noopener"><span data-l="ar">جرّب النسخة الأولى</span><span data-l="en">Early version</span> ↗</a><a href="https://github.com/mohammed131207/gapper" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </div>
+          <figure class="w-shot" style="--tint:#22301E" data-b data-fx="wipe" data-n="img.screenshot"><img src="assets/gapper.jpg" alt="Gapper dashboard" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <!-- M.H LIBRARY -->
+      <article class="work">
+        <div class="w-top" data-b data-n="w.header"><span class="pill"><span data-l="ar">للطلاب · Firebase</span><span data-l="en">For students · Firebase</span></span><span class="w-idx">PRJ_06 / MH_LIBRARY</span></div>
+        <div class="w-grid">
+          <div>
+            <h3 data-b data-n="h3">M.H Library <small>مكتبتي</small></h3>
+            <p class="desc" data-b data-n="p.desc"><span data-l="ar">مكتبة رقمية لطلاب هندسة البرمجيات والذكاء الاصطناعي. الطالب بيسجّل برقمه الجامعي وبيرفع ملفات المساقات، وبتظهر فوراً لكل زملائه مع اسمه.</span><span data-l="en">A digital library for Software Engineering and AI students. Students sign up with their university ID and upload course files that appear instantly for everyone, credited to them.</span></p>
+            <div class="metrics" data-b data-n="metrics">
+              <div class="metric"><b>ID</b><span data-l="ar">دخول بالرقم الجامعي</span><span data-l="en">student sign-in</span></div>
+              <div class="metric"><b>AR·EN</b><span data-l="ar">لغتين</span><span data-l="en">bilingual</span></div>
+              <div class="metric"><b>LIVE</b><span data-l="ar">مشاركة فورية</span><span data-l="en">instant sharing</span></div>
+            </div>
+            <ul class="feats" data-b data-n="ul.features">
+              <li><span data-l="ar">تصنيف حسب المساق، مع بحث ومفضلة</span><span data-l="en">Organized by course, with search and favorites</span></li>
+              <li><span data-l="ar">«آخر الملفات» و«الأكثر تحميلاً»</span><span data-l="en">Latest uploads and most downloaded</span></li>
+              <li><span data-l="ar">صلاحيات أدمن ووضع ليلي</span><span data-l="en">Admin roles and dark mode</span></li>
+            </ul>
+            <div class="w-stack" data-b data-n="stack"><span class="chip">HTML · CSS · JS</span><span class="chip">Firebase Auth</span><span class="chip">Firestore</span></div>
+            <div class="w-links" data-b data-n="links"><a href="https://fantastic-treacle-1ab207.netlify.app/" target="_blank" rel="noopener"><span data-l="ar">الموقع الحي</span><span data-l="en">Live site</span> ↗</a></div>
+          </div>
+          <figure class="w-shot" style="--tint:#E6E4F8" data-b data-fx="wipe" data-n="img.screenshot"><img src="assets/mhlib.jpg" alt="M.H Library home" loading="lazy"></figure>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-idx" data-b data-n="label">//03.00 SEC_PROCESS · INDEX [03/05]</p>
+      <p class="kicker" data-b data-n="kicker"><span data-l="ar">طريقتي</span><span data-l="en">Process</span></p>
+      <h2 data-b data-n="h2"><span data-l="ar">من فكرة على ورقة إلى رابط شغّال</span><span data-l="en">From a paper sketch to a live link</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step" data-b data-n="step"><span class="n">01</span><b><span data-l="ar">بفهم المشكلة</span><span data-l="en">Understand</span></b><p><span data-l="ar">بقعد مع صاحب المحل أو الطالب وبحدد شو بدّه بالضبط.</span><span data-l="en">I sit with the owner or student and pin down exactly what they need.</span></p></div>
+      <div class="step" data-b data-n="step"><span class="n">02</span><b><span data-l="ar">بصمّم التجربة</span><span data-l="en">Design</span></b><p><span data-l="ar">الشاشات والتدفّق أول، وعربي وRTL من البداية.</span><span data-l="en">Screens and flow first, Arabic and RTL from day one.</span></p></div>
+      <div class="step" data-b data-n="step"><span class="n">03</span><b><span data-l="ar">ببني مع AI</span><span data-l="en">Build with AI</span></b><p><span data-l="ar">بوجّه وبراجع وبكتب اختبارات للأجزاء المهمة.</span><span data-l="en">I direct, review, and test the parts that matter.</span></p></div>
+      <div class="step" data-b data-n="step"><span class="n">04</span><b><span data-l="ar">بنشر وبتابع</span><span data-l="en">Ship</span></b><p><span data-l="ar">رابط حي، تحديثات من جوّا التطبيق، ودعم بعد التسليم.</span><span data-l="en">A live link, in-app updates, and support after handoff.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certs">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-idx" data-b data-n="label">//04.00 SEC_CERTS · INDEX [04/05]</p>
+      <p class="kicker" data-b data-n="kicker"><span data-l="ar">الشهادات</span><span data-l="en">Certificates</span></p>
+      <h2 data-b data-n="h2"><span data-l="ar">بتعلّم باستمرار، وخصوصاً الذكاء الاصطناعي</span><span data-l="en">Always learning — especially AI</span></h2>
+      <p class="sec-sub" data-b data-n="p.sub"><span data-l="ar">شهادات من Google وAnthropic بالذكاء الاصطناعي وهندسة الأوامر، وأساس قوي بـ Java. اكبس على أي شهادة لتشوفها كاملة، أو تتحقق منها.</span><span data-l="en">Certificates from Google and Anthropic in AI and prompt engineering, plus a solid Java foundation. Click any certificate to view it in full or verify it.</span></p>
+    </div>
+    <div class="certs">
+      <a class="cert" href="https://www.coursera.org/account/accomplishments/verify/U5RVG0H51R4K" data-ext="1" target="_blank" rel="noopener" title="Credential ID U5RVG0H51R4K" data-b data-n="card.cert"><div class="c-img"><img src="assets/certs/google-intro-ai-sm.jpg" alt="Google Introduction to AI certificate" loading="lazy"></div><div class="c-body"><span class="c-org">Google · Coursera</span><b>Introduction to AI</b><span class="c-meta"><span>SEP 2026</span><em>VERIFY ↗</em></span></div></a>
+      <a class="cert" href="assets/certs/claude-code-101.jpg" target="_blank" rel="noopener" data-b data-n="card.cert"><div class="c-img"><img src="assets/certs/claude-code-101-sm.jpg" alt="Claude Code 101 certificate" loading="lazy"></div><div class="c-body"><span class="c-org">Anthropic</span><b>Claude Code 101</b><span class="c-meta"><span>AUG 2026</span><em>VIEW ↗</em></span></div></a>
+      <a class="cert" href="assets/certs/mcp-advanced.jpg" target="_blank" rel="noopener" data-b data-n="card.cert"><div class="c-img"><img src="assets/certs/mcp-advanced-sm.jpg" alt="Model Context Protocol: Advanced Topics certificate" loading="lazy"></div><div class="c-body"><span class="c-org">Anthropic</span><b>Model Context Protocol: Advanced Topics</b><span class="c-meta"><span>AUG 2026</span><em>VIEW ↗</em></span></div></a>
+      <a class="cert" href="assets/certs/claude101.jpg" target="_blank" rel="noopener" data-b data-n="card.cert"><div class="c-img"><img src="assets/certs/claude101-sm.jpg" alt="Claude 101 certificate" loading="lazy"></div><div class="c-body"><span class="c-org">Anthropic</span><b>Claude 101</b><span class="c-meta"><span>AUG 2026</span><em>VIEW ↗</em></span></div></a>
+      <a class="cert" href="assets/certs/claude-cowork.jpg" target="_blank" rel="noopener" data-b data-n="card.cert"><div class="c-img"><img src="assets/certs/claude-cowork-sm.jpg" alt="Introduction to Claude Cowork certificate" loading="lazy"></div><div class="c-body"><span class="c-org">Anthropic</span><b>Introduction to Claude Cowork</b><span class="c-meta"><span>AUG 2026</span><em>VIEW ↗</em></span></div></a>
+      <a class="cert" href="assets/certs/java-50h.jpg" target="_blank" rel="noopener" data-b data-n="card.cert"><div class="c-img"><img src="assets/certs/java-50h-sm.jpg" alt="Java 1 &amp; 2 Programming certificate" loading="lazy"></div><div class="c-body"><span class="c-org">Pro Learn</span><b>Java 1 &amp; 2 Programming</b><span class="c-meta"><span>MAY 2026 · 50H</span><em>VIEW ↗</em></span></div></a>
+      <a class="cert" href="assets/certs/one-million-prompters.jpg" target="_blank" rel="noopener" data-b data-n="card.cert"><div class="c-img"><img src="assets/certs/one-million-prompters-sm.jpg" alt="One Million Prompters certificate" loading="lazy"></div><div class="c-body"><span class="c-org">Dubai Future Foundation</span><b>One Million Prompters</b><span class="c-meta"><span>MAY 2026</span><em>VIEW ↗</em></span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="sec-idx" data-b data-n="label">//05.00 SEC_CONTACT · INDEX [05/05]</p>
+    <h2 class="big" data-b data-fx="wipe" data-n="h2.big"><span data-l="ar">خلّينا <span class="o">نبنيها.</span></span><span data-l="en">Let's <span class="o">build it.</span></span></h2>
+    <div class="c-grid">
+      <p data-b data-n="p"><span data-l="ar">تطبيق لمحلك، منصة لطلابك، أو أي مشكلة بدها حل. راسلني وبرد عليك بسرعة.</span><span data-l="en">An app for your shop, a platform for your students, or any problem that needs solving. Message me and I'll reply fast.</span></p>
+      <div class="c-links" data-b data-n="links.contact">
+        <a href="mailto:mo082553556m@gmail.com"><span class="k">EMAIL</span><span class="v">mo082553556m@gmail.com</span></a>
+        <a href="https://wa.me/970599824136" target="_blank" rel="noopener"><span class="k">WHATSAPP</span><span class="v">+970 599 824 136</span></a>
+        <a href="https://github.com/mohammed131207" target="_blank" rel="noopener"><span class="k">GITHUB</span><span class="v">@mohammed131207</span></a>
+        <a href="https://www.linkedin.com/in/%D9%85%D8%AD%D9%85%D8%AF-%D8%AD%D9%85%D8%AF%D8%A7%D9%86-0646453b0/" target="_blank" rel="noopener"><span class="k">LINKEDIN</span><span class="v">Mohammed Hamdan</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Mohammed Hamdan</span>
+    <span>Built live · vibe coding</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  function store(k, v){ try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch(e){ return null; } }
+  var wait = function(ms){ return new Promise(function(r){ setTimeout(r, ms); }); };
+  var rnd = function(a, b){ return a + Math.random() * (b - a); };
+  $("#yr").textContent = new Date().getFullYear();
+
+  /* ---------- language ---------- */
+  var titles = { ar: "محمد حمدان · مهندس برمجيات", en: "Mohammed Hamdan · Software Engineer" };
+  function setLang(l){
+    root.lang = l; root.dir = l === "ar" ? "rtl" : "ltr"; document.title = titles[l]; store("lang", l);
+    fitMega(); requestAnimationFrame(relayout);
+  }
+
+  /* ---------- fit the giant outlined word to the container ---------- */
+  var mega = $("#mega");
+  function fitMega(){
+    var span = mega.firstElementChild, w = mega.clientWidth;
+    mega.style.fontSize = "100px";
+    var sw = span.getBoundingClientRect().width || 1;
+    var size = Math.min(100 * w / sw * 0.995, 300);
+    mega.style.fontSize = size + "px";
+    root.style.setProperty("--mega", size + "px");
+  }
+
+  /* ---------- blueprint frames (wireframes + selections) ---------- */
+  var bp = $("#bp");
+  var wires = new Map();
+  function rectDoc(el){ var r = el.getBoundingClientRect(); return { x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height }; }
+  function place(node, el){ var r = rectDoc(el); node.style.left = r.x + "px"; node.style.top = r.y + "px"; node.style.width = r.w + "px"; node.style.height = r.h + "px"; return r; }
+  function label(el, r){ return (el.dataset.n || el.tagName.toLowerCase()) + "  " + Math.round(r.w) + "×" + Math.round(r.h); }
+  function addWire(el){
+    var w = document.createElement("div"); w.className = "wire";
+    var em = document.createElement("em"); w.appendChild(em);
+    bp.appendChild(w); wires.set(el, w);
+    var r = place(w, el); em.textContent = label(el, r);
+  }
+  function dropWire(el){
+    var w = wires.get(el); if (!w) return; wires.delete(el);
+    w.classList.add("gone"); setTimeout(function(){ w.remove(); }, 500);
+  }
+  function makeSel(el, color, fast){
+    var s = document.createElement("div");
+    s.className = "sel " + (root.dir === "rtl" ? "r" : "l") + (fast ? " fast" : "");
+    s.style.setProperty("--c", color);
+    s.innerHTML = '<div class="box"><i></i><i></i><i></i><i></i><span class="tag"></span></div>';
+    var r = place(s, el);
+    s.querySelector(".tag").textContent = Math.round(r.w) + " × " + Math.round(r.h);
+    bp.appendChild(s);
+    return s;
+  }
+  var liveSels = new Map();
+  function relayout(){
+    bp.style.height = document.documentElement.scrollHeight + "px";
+    wires.forEach(function(w, el){ var r = place(w, el); w.firstChild.textContent = label(el, r); });
+    liveSels.forEach(function(el, s){ place(s, el); });
+  }
+
+  /* ---------- cursors ---------- */
+  var layer = $("#cursors");
+  var small = innerWidth < 700;
+  var CUR = [
+    { n: { ar: "محمد", en: "Mohammed" }, c: "#EF3B2D", t: "#fff" },
+    { n: "Claude", c: "#E8875B", t: "#1a0d06" },
+    { n: "Flutter", c: "#4FC3F7", t: "#04202b" },
+    { n: "Figma", c: "#A259FF", t: "#fff" },
+    { n: "Java", c: "#F5C542", t: "#2a2003" },
+    { n: "Python", c: "#3DDC84", t: "#03210f" }
+  ];
+  if (small) CUR = CUR.slice(0, 4);
+  var ARROW = '<svg viewBox="0 0 24 24"><path d="M3 2v18.2l4.9-4.6 3.4 7.2 3-1.4-3.3-7h6.8z" stroke="rgba(0,0,0,.65)" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+
+  function Cursor(def){
+    this.def = def; this.color = def.c; this.tok = 0; this.x = -60; this.y = -60;
+    var d = document.createElement("div"); d.className = "cur";
+    d.innerHTML = ARROW + "<span></span>";
+    d.querySelector("path").setAttribute("fill", def.c);
+    var sp = d.querySelector("span"); sp.style.background = def.c; sp.style.color = def.t;
+    this.el = d; this.lbl = sp; this.relabel(); layer.appendChild(d);
+  }
+  Cursor.prototype.relabel = function(){ var n = this.def.n; this.lbl.textContent = typeof n === "string" ? n : n[root.lang] || n.en; };
+  Cursor.prototype.set = function(x, y){ this.x = x; this.y = y; this.el.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)"; };
+  Cursor.prototype.to = function(x, y, dur){
+    var self = this, tok = ++this.tok, sx = this.x, sy = this.y, dx = x - sx, dy = y - sy;
+    var len = Math.hypot(dx, dy) || 1, off = rnd(-0.5, 0.5) * Math.min(180, len * 0.4);
+    var cx = sx + dx / 2 - dy / len * off, cy = sy + dy / 2 + dx / len * off;
+    dur = dur || Math.min(800, 300 + len * 0.5);
+    return new Promise(function(res){
+      var t0 = performance.now(), done = false;
+      setTimeout(function(){ if (!done && tok === self.tok){ done = true; self.set(x, y); res(); } }, dur + 400);
+      function step(now){
+        if (done) return;
+        if (tok !== self.tok){ done = true; return res(); }
+        var t = Math.min(1, (now - t0) / dur), e = t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2, u = 1 - e;
+        self.set(u * u * sx + 2 * u * e * cx + e * e * x, u * u * sy + 2 * u * e * cy + e * e * y);
+        if (t < 1) requestAnimationFrame(step); else { done = true; res(); }
+      }
+      requestAnimationFrame(step);
+    });
+  };
+
+  /* ---------- build queue ---------- */
+  var items = $$("[data-b]");
+  var state = new Map();           // el -> "wait" | "claimed" | "done"
+  var seenAt = new Map();
+  items.forEach(function(el){ state.set(el, "wait"); });
+  var cursorsOn = store("cursors") !== "off";
+  var skipped = false;
+
+  function visible(el, pad){
+    var r = el.getBoundingClientRect(); pad = pad || 0;
+    return r.bottom > 60 && r.top < innerHeight - pad && r.width > 0;
+  }
+  function finish(el, instant){
+    if (state.get(el) === "done") return;
+    state.set(el, "done");
+    if (instant) el.classList.add("instant");
+    el.classList.add("built");
+    dropWire(el);
+  }
+  function next(){
+    var best = null, bp_ = 99;
+    for (var i = 0; i < items.length; i++){
+      var el = items[i];
+      if (state.get(el) !== "wait" || !visible(el, innerHeight * 0.06)) continue;
+      var p = el.dataset.p ? +el.dataset.p : 5;
+      if (p < bp_){ best = el; bp_ = p; }
+    }
+    return best;
+  }
+  async function build(el, cur){
+    state.set(el, "claimed");
+    var r = el.getBoundingClientRect(), rtl = root.dir === "rtl";
+    var big = r.height > innerHeight * 0.8;
+    await cur.to(rtl ? r.right : r.left, Math.max(r.top, 70));
+    if (skipped || !cursorsOn){ finish(el, true); return; }
+    var s = makeSel(el, cur.color); liveSels.set(s, el);
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ s.classList.add("draw"); }); });
+    r = el.getBoundingClientRect();
+    await cur.to(rtl ? r.left : r.right, big ? Math.min(r.bottom, innerHeight - 40) : r.bottom, 450);
+    finish(el);
+    await wait(el.dataset.fx === "mega" ? 800 : 300);
+    s.classList.add("out");
+    setTimeout(function(){ liveSels.delete(s); s.remove(); }, 350);
+  }
+
+  var peeks = 0;
+  async function idle(cur){
+    var vis = items.filter(function(el){ return state.get(el) === "done" && visible(el, 40) && el.getBoundingClientRect().height < innerHeight * .6; });
+    if (vis.length && peeks < 2 && Math.random() < 0.35 && cursorsOn){
+      var el = vis[(Math.random() * vis.length) | 0], r = el.getBoundingClientRect(), rtl = root.dir === "rtl";
+      peeks++;
+      await cur.to(rtl ? r.right : r.left, r.top);
+      var s = makeSel(el, cur.color, true); liveSels.set(s, el);
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ s.classList.add("draw"); }); });
+      r = el.getBoundingClientRect();
+      await cur.to(rtl ? r.left : r.right, r.bottom, 300);
+      await wait(rnd(500, 1100));
+      s.classList.add("out"); setTimeout(function(){ liveSels.delete(s); s.remove(); }, 350);
+      peeks--;
+      await cur.to(cur.x + rnd(-80, 80), cur.y + rnd(30, 90), 600);
+    } else {
+      await cur.to(rnd(.08, .92) * innerWidth, rnd(.18, .88) * innerHeight, rnd(1100, 2000));
+      await wait(rnd(200, 1100));
+    }
+  }
+  async function worker(cur){
+    await wait(rnd(0, 250));
+    while (true){
+      var el = next();
+      if (el) await build(el, cur);
+      else await idle(cur);
+    }
+  }
+
+  // Safety net: nothing stays hidden. Scrolled-past items appear at once; items left waiting in view appear after a moment.
+  function sweep(){
+    var now = performance.now();
+    items.forEach(function(el){
+      var st = state.get(el); if (st === "done") return;
+      var r = el.getBoundingClientRect();
+      if (r.bottom < 0 || skipped) { finish(el, true); return; }
+      if (r.top < innerHeight && r.bottom > 0){
+        if (!seenAt.has(el)) seenAt.set(el, now);
+        else if (now - seenAt.get(el) > (st === "claimed" ? 4200 : 2800)) finish(el, false);
+      }
+    });
+  }
+
+  /* ---------- intro ---------- */
+  var cursors = [];
+  async function intro(){
+    var boot = $("#boot"), msg = $("#bootMsg");
+    var cx = innerWidth / 2, cy = innerHeight / 2, R = Math.min(150, innerWidth * .28);
+    cursors.forEach(function(c, i){
+      var side = i % 4;
+      c.set(side === 0 ? -40 : side === 1 ? innerWidth + 40 : rnd(0, innerWidth), side === 2 ? -40 : side === 3 ? innerHeight + 40 : rnd(0, innerHeight));
+    });
+    await wait(250);
+    var arrive = cursors.map(function(c, i){
+      var a = i / cursors.length * Math.PI * 2;
+      return wait(i * 110).then(function(){ msg.textContent = "connecting collaborators · " + (i + 1) + "/" + cursors.length; return c.to(cx + Math.cos(a) * R, cy + Math.sin(a) * R * .8, 800); });
+    });
+    await Promise.all(arrive);
+    msg.textContent = "workspace ready · building";
+    // orbit once
+    var t0 = performance.now(), D = 1000;
+    await new Promise(function(res){
+      function spin(now){
+        var t = Math.min(1, (now - t0) / D), e = t * t * (3 - 2 * t);
+        cursors.forEach(function(c, i){ var a = i / cursors.length * Math.PI * 2 + e * Math.PI * 1.1; var rr = R * (1 - .25 * Math.sin(t * Math.PI)); c.set(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr * .8); });
+        if (t < 1) requestAnimationFrame(spin); else res();
+      }
+      requestAnimationFrame(spin);
+      setTimeout(res, D + 400);
+    });
+    if (skipped) return;
+    root.classList.add("grid-on");
+    items.forEach(function(el){ if (state.get(el) !== "done") addWire(el); });
+    relayout();
+    boot.classList.add("off");
+    cursors.forEach(worker);
+    setInterval(sweep, 300);
+    introDone = true;
+    setTimeout(function(){ root.classList.remove("grid-on"); }, 7000);
+  }
+  var introDone = false;
+
+  function skip(){
+    skipped = true;
+    items.forEach(function(el){ finish(el, true); });
+    $("#boot").classList.add("off");
+    root.classList.remove("grid-on");
+    $("#skip").classList.add("hide");
+    if (!introDone){ introDone = true; cursors.forEach(worker); }
+  }
+
+  /* ---------- collaborators chip ---------- */
+  function renderCollab(){
+    $("#dots").innerHTML = CUR.map(function(d){ var n = typeof d.n === "string" ? d.n : d.n.en; return '<i style="background:' + d.c + '">' + n[0] + "</i>"; }).join("");
+    $("#collabLbl").textContent = cursorsOn ? CUR.length + " LIVE" : "OFF";
+    root.classList.toggle("no-cur", !cursorsOn);
+  }
+
+  /* ---------- wire up ---------- */
+  $("#langBtn").addEventListener("click", function(){ setLang(root.lang === "ar" ? "en" : "ar"); cursors.forEach(function(c){ c.relabel(); }); });
+  $("#collabBtn").addEventListener("click", function(){ cursorsOn = !cursorsOn; store("cursors", cursorsOn ? "on" : "off"); renderCollab(); });
+  $("#skip").addEventListener("click", skip);
+  var lb = $("#lb");
+  if (lb && lb.showModal){
+    $$(".cert:not([data-ext])").forEach(function(a){ a.addEventListener("click", function(e){ e.preventDefault(); var im = lb.querySelector("img"); im.src = a.getAttribute("href"); im.alt = a.querySelector("b").textContent; lb.showModal(); }); });
+    lb.addEventListener("click", function(){ lb.close(); });
+  }
+  addEventListener("resize", function(){ fitMega(); relayout(); });
+  if ("ResizeObserver" in window) new ResizeObserver(function(){ requestAnimationFrame(relayout); }).observe(document.body);
+  if ($("#portrait img")) $("#portrait img").addEventListener("load", function(){ $("#capTxt").textContent = "MOHAMMED_HAMDAN.JPG"; });
+
+  renderCollab();
+  var fontsReady = (document.fonts && document.fonts.ready) ? Promise.race([document.fonts.ready, wait(1500)]) : wait(300);
+  fontsReady.then(function(){
+    fitMega();
+    window.__live = true;
+    if (!root.classList.contains("anim")) return;   // reduced motion: everything is already visible
+    CUR.forEach(function(d){ cursors.push(new Cursor(d)); });
+    addEventListener("scroll", function(){ $("#skip").classList.toggle("hide", skipped || scrollY > 600 && items.every(function(el){ return state.get(el) === "done"; })); }, { passive: true });
+    function start(){ setTimeout(function(){ if (!introDone) skip(); }, 7000); intro(); }
+    if (document.hidden){
+      document.addEventListener("visibilitychange", function h(){ if (!document.hidden){ document.removeEventListener("visibilitychange", h); start(); } });
+    } else start();
+  });
+})();
+</script>
+</body>
+</html>
