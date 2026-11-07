@@ -259,6 +259,23 @@ html[lang="ar"] .links a{letter-spacing:0;font-size:.84rem;text-transform:none}
 .w-hint i{width:1px;height:28px;background:linear-gradient(var(--ink-3), transparent);animation:hint 1.6s ease-in-out infinite}
 @keyframes hint{50%{transform:translateY(6px);opacity:.4}}
 
+
+/* teaser: a project that is announced soon — everything blurred except its name */
+.teaser .tz{filter:blur(9px) saturate(.8);opacity:.7;user-select:none;pointer-events:none;transition:filter .4s}
+.soon{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;
+  padding:22px 34px;border-radius:22px;white-space:nowrap;
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03)), color-mix(in srgb, var(--bg) 55%, transparent);
+  backdrop-filter:blur(16px) saturate(1.6);-webkit-backdrop-filter:blur(16px) saturate(1.6);
+  border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.2), 0 24px 60px -24px rgba(0,0,0,.7)}
+.soon .k{display:flex;align-items:center;gap:8px;font:600 .66rem "Outfit", sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.soon .k i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 color-mix(in srgb, var(--red) 60%, transparent);animation:soon-ping 1.8s ease-out infinite}
+.soon b{font:400 clamp(1.8rem, 4vw, 2.8rem)/1.05 "Outfit", sans-serif;font-weight:600;color:var(--ink);letter-spacing:.01em}
+.soon small{font-size:.92rem;color:var(--ink-2)}
+@keyframes soon-ping{0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--red) 60%, transparent)}100%{box-shadow:0 0 0 12px transparent}}
+html.still .soon .k i{animation:none}
+:root[data-theme="light"] .soon{background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.6));border-color:#fff;box-shadow:inset 0 1px 0 #fff, 0 24px 60px -28px rgba(40,30,20,.4)}
+
+.pp.teaser{overflow:visible}
 /* ---------- certificates ---------- */
 .certs{display:grid;grid-template-columns:repeat(4, 1fr);gap:14px;margin-top:40px}
 .cert{position:relative;display:block;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:border-color .25s, transform .25s}
@@ -617,7 +634,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       f: [{ en: "Separate Android ID and its own update channel", ar: "معرّف أندرويد مستقل وقناة تحديث خاصة" }, { en: "Published web build for iPhone users", ar: "نسخة ويب منشورة لمستخدمي الآيفون" }, { en: "Documented handoff that keeps deployments apart", ar: "ملف تسليم موثّق بيمنع خلط الحسابات" }],
       s: ["Flutter", "Firebase Hosting", "Firestore"],
       l: [[{ en: "Try the web app", ar: "جرّب نسخة الويب" }, "https://dose2.web.app"]] },
-    { n: "Ilaf", ar: "إيلاف", img: "assets/ilaf.jpg", tint: "#EFE6DA", tall: true,
+    { n: "Ilaf", ar: "إيلاف", img: "assets/ilaf.jpg", tint: "#EFE6DA", tall: true, soon: true,
       tag: { en: "Prototype · F&B", ar: "نموذج جاهز للتجربة · مطاعم" },
       d: { en: "A smart ordering platform for cafés and restaurants. Customers order from the table by QR, the cashier tracks every order, and the platform owner manages all stores from one dashboard.", ar: "منصة طلب ذكية للكافيهات والمطاعم. الزبون بيطلب من الطاولة بـ QR، الكاشير بيتابع كل طلب، وصاحب المنصة بيدير كل المحلات من لوحة وحدة." },
       m: [["3", { en: "interfaces", ar: "واجهات" }], ["AI", { en: "assistant", ar: "مساعد «نديم»" }], ["2", { en: "store types", ar: "كافيه ومطعم" }]],
@@ -656,7 +673,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   /* ---------- render: project panels ---------- */
   var panel = $("#panel"), wheel = $("#wheel");
   P.forEach(function(p, i){
-    var el = document.createElement("article"); el.className = "pp" + (i === 0 ? " on" : "");
+    var el = document.createElement("article"); el.className = "pp" + (i === 0 ? " on" : "") + (p.soon ? " teaser" : "");
     var team = p.t ? '<div class="team">' + p.t.map(function(m){
       var inner = '<i>' + m.i + '</i>' + m.n + ' <em>· ' + L(m.r) + '</em>';
       return m.u ? '<a class="' + (m.me ? "me" : "") + '" href="' + m.u + '" target="_blank" rel="noopener">' + inner + '</a>' : '<span class="m">' + inner + '</span>';
@@ -678,6 +695,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           '<div class="links">' + p.l.map(function(k){ return '<a href="' + k[1] + '" target="_blank" rel="noopener">' + L(k[0]) + ' ↗</a>'; }).join("") + '</div>' +
         '</div>' +
       '</div>';
+    if (p.soon){
+      el.querySelectorAll(".pp-grid > div > *:not(h3), .pp-grid > div:last-child").forEach(function(x){ x.classList.add("tz"); x.setAttribute("aria-hidden", "true"); x.inert = true; });
+      el.insertAdjacentHTML("beforeend", '<div class="soon" role="note"><span class="k"><i></i><span data-l="en">Coming soon</span><span data-l="ar">قريباً</span></span><b>ILAF</b><small><span data-l="en">Will be announced soon</span><span data-l="ar">سيتم الإعلان عنه قريباً</span></small></div>');
+    }
     panel.appendChild(el);
   });
   var pps = $$(".pp");

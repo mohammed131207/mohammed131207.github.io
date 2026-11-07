@@ -283,6 +283,22 @@ html[dir="rtl"] .c-body b{text-align:right}
 #lb img{max-width:100%;max-height:88vh;border-radius:6px;display:block}
 #lb button{position:absolute;top:10px;inset-inline-end:10px;width:36px;height:36px;border-radius:50%;border:0;background:#0B0B0C;color:#fff;font-size:18px;cursor:pointer}
 
+
+/* teaser: a project that is announced soon — everything blurred except its name */
+.teaser .tz{filter:blur(9px) saturate(.8);opacity:.7;user-select:none;pointer-events:none;transition:filter .4s}
+.soon{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;
+  padding:22px 34px;border-radius:22px;white-space:nowrap;
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03)), color-mix(in srgb, var(--bg) 55%, transparent);
+  backdrop-filter:blur(16px) saturate(1.6);-webkit-backdrop-filter:blur(16px) saturate(1.6);
+  border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.2), 0 24px 60px -24px rgba(0,0,0,.7)}
+.soon .k{display:flex;align-items:center;gap:8px;font:600 .66rem var(--f-mono, ui-monospace);letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.soon .k i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 color-mix(in srgb, var(--red) 60%, transparent);animation:soon-ping 1.8s ease-out infinite}
+.soon b{font:400 clamp(1.8rem, 4vw, 2.8rem)/1.05 var(--f-mega, "Archivo Black", sans-serif);color:var(--ink);letter-spacing:.01em}
+.soon small{font-size:.92rem;color:var(--ink-2)}
+@keyframes soon-ping{0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--red) 60%, transparent)}100%{box-shadow:0 0 0 12px transparent}}
+html.still .soon .k i{animation:none}
+:root[data-theme="light"] .soon{background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.6));border-color:#fff;box-shadow:inset 0 1px 0 #fff, 0 24px 60px -28px rgba(40,30,20,.4)}
+
 /* process */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .step{background:var(--bg);padding:24px 22px 28px}
@@ -589,31 +605,32 @@ html.no-cur #cursors{opacity:0}
       </article>
 
       <!-- ILAF -->
-      <article class="work">
-        <div class="w-top" data-b data-n="w.header"><span class="pill"><span data-l="ar">نموذج جاهز للتجربة · مطاعم</span><span data-l="en">Prototype · F&amp;B</span></span><span class="w-idx">PRJ_04 / ILAF</span></div>
+      <article class="work teaser">
+        <div class="soon" role="note"><span class="k"><i></i><span data-l="en">Coming soon</span><span data-l="ar">قريباً</span></span><b>ILAF</b><small><span data-l="en">Will be announced soon</span><span data-l="ar">سيتم الإعلان عنه قريباً</span></small></div>
+        <div class="tz w-top" data-b data-n="w.header"><span class="pill"><span data-l="ar">نموذج جاهز للتجربة · مطاعم</span><span data-l="en">Prototype · F&amp;B</span></span><span class="w-idx">PRJ_04 / ILAF</span></div>
         <div class="w-grid">
           <div>
             <h3 data-b data-n="h3">Ilaf <small>إيلاف</small></h3>
-            <p class="desc" data-b data-n="p.desc"><span data-l="ar">منصة طلب ذكية للكافيهات والمطاعم. الزبون بيدخل رقم طاولته وبيطلب من المنيو، الكاشير بيستلم الطلب وبيتابعه، وصاحب المنصة بيدير كل المحلات من لوحة وحدة.</span><span data-l="en">A smart ordering platform for cafés and restaurants. Customers order from the table, the cashier tracks every order, and the platform owner manages all stores from one dashboard.</span></p>
-            <div class="metrics" data-b data-n="metrics">
+            <p class="tz desc" data-b data-n="p.desc"><span data-l="ar">منصة طلب ذكية للكافيهات والمطاعم. الزبون بيدخل رقم طاولته وبيطلب من المنيو، الكاشير بيستلم الطلب وبيتابعه، وصاحب المنصة بيدير كل المحلات من لوحة وحدة.</span><span data-l="en">A smart ordering platform for cafés and restaurants. Customers order from the table, the cashier tracks every order, and the platform owner manages all stores from one dashboard.</span></p>
+            <div class="tz metrics" data-b data-n="metrics">
               <div class="metric"><b>3</b><span data-l="ar">واجهات</span><span data-l="en">interfaces</span></div>
               <div class="metric"><b>AI</b><span data-l="ar">مساعد «نديم»</span><span data-l="en">assistant</span></div>
               <div class="metric"><b>2</b><span data-l="ar">كافيه ومطعم</span><span data-l="en">store types</span></div>
             </div>
-            <ul class="feats" data-b data-n="ul.features">
+            <ul class="tz feats" data-b data-n="ul.features">
               <li><span data-l="ar">منيو بـ QR، سلة، تتبّع الطلب، ونداء الجرسون</span><span data-l="en">QR menu, cart, order tracking, and waiter call</span></li>
               <li><span data-l="ar">لوحة كاشير: الصالة والطلبات حسب المرحلة والعروض</span><span data-l="en">Cashier view: floor, orders by stage, promos</span></li>
               <li><span data-l="ar">لون خاص لكل محل، وضع ليلي، وتجميد حسابات</span><span data-l="en">Per-store branding, dark mode, account freezing</span></li>
             </ul>
-            <div class="w-stack" data-b data-n="stack"><span class="chip">JavaScript</span><span class="chip">HTML · CSS</span><span class="chip">Node.js</span><span class="chip">GitHub Pages</span></div>
-            <p class="myrole" data-b data-n="p.role"><span class="t"><span data-l="ar">دوري</span><span data-l="en">My role</span></span><span data-l="ar">بنيت منطق الواجهة والسيرفر، ومفاتيح تبديل الثيم، وربط الحالة بين الشاشات، واختبرت النظام كامل.</span><span data-l="en">Built the frontend and backend logic, the custom theme switches and state integration, and ran full-system testing.</span></p>
-            <div class="team" data-b data-n="team"><p class="team-h"><span data-l="ar">الفريق · شخصين</span><span data-l="en">Team · 2 people</span></p><ul><li class="me"><i>MH</i><div><a href="https://www.linkedin.com/in/%D9%85%D8%AD%D9%85%D8%AF-%D8%AD%D9%85%D8%AF%D8%A7%D9%86-0646453b0/" target="_blank" rel="noopener"><b>Mohammed Hamdan</b></a><span data-l="ar">مهندس البرمجيات الرئيسي · Full-Stack</span><span data-l="en">Lead Software Engineer · Full-Stack</span></div></li><li><i>NA</i><div><a href="https://www.linkedin.com/in/nancy-aburuqa-4ba072351/" target="_blank" rel="noopener"><b>Nancy Aburuqa</b></a><span data-l="ar">مديرة المشروع · تحليل، جودة، وتصميم UI</span><span data-l="en">Project Manager · Data, QA &amp; UI</span></div></li></ul></div>
-            <div class="w-links" data-b data-n="links">
+            <div class="tz w-stack" data-b data-n="stack"><span class="chip">JavaScript</span><span class="chip">HTML · CSS</span><span class="chip">Node.js</span><span class="chip">GitHub Pages</span></div>
+            <p class="tz myrole" data-b data-n="p.role"><span class="t"><span data-l="ar">دوري</span><span data-l="en">My role</span></span><span data-l="ar">بنيت منطق الواجهة والسيرفر، ومفاتيح تبديل الثيم، وربط الحالة بين الشاشات، واختبرت النظام كامل.</span><span data-l="en">Built the frontend and backend logic, the custom theme switches and state integration, and ran full-system testing.</span></p>
+            <div class="tz team" inert aria-hidden="true" data-b data-n="team"><p class="tz team-h"><span data-l="ar">الفريق · شخصين</span><span data-l="en">Team · 2 people</span></p><ul><li class="me"><i>MH</i><div><a href="https://www.linkedin.com/in/%D9%85%D8%AD%D9%85%D8%AF-%D8%AD%D9%85%D8%AF%D8%A7%D9%86-0646453b0/" target="_blank" rel="noopener"><b>Mohammed Hamdan</b></a><span data-l="ar">مهندس البرمجيات الرئيسي · Full-Stack</span><span data-l="en">Lead Software Engineer · Full-Stack</span></div></li><li><i>NA</i><div><a href="https://www.linkedin.com/in/nancy-aburuqa-4ba072351/" target="_blank" rel="noopener"><b>Nancy Aburuqa</b></a><span data-l="ar">مديرة المشروع · تحليل، جودة، وتصميم UI</span><span data-l="en">Project Manager · Data, QA &amp; UI</span></div></li></ul></div>
+            <div class="tz w-links" inert aria-hidden="true" data-b data-n="links">
               <a href="https://ilaf-onlinerestaurantecosystem.github.io/ilaf-demo/" target="_blank" rel="noopener"><span data-l="ar">جرّب الديمو</span><span data-l="en">Live demo</span> ↗</a>
               <a href="https://github.com/ILAF-OnlineRestaurantEcosystem/ilaf" target="_blank" rel="noopener">GitHub ↗</a>
             </div>
           </div>
-          <figure class="w-shot tall" style="--tint:#EFE6DA" data-b data-fx="wipe" data-n="img.screenshot"><img src="assets/ilaf.jpg" alt="Ilaf customer menu" loading="lazy"></figure>
+          <figure class="tz w-shot tall" style="--tint:#EFE6DA" data-b data-fx="wipe" data-n="img.screenshot"><img src="assets/ilaf.jpg" alt="Ilaf customer menu" loading="lazy"></figure>
         </div>
       </article>
 
